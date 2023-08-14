@@ -71,7 +71,7 @@ export default function Navigation({ theme = '' }) {
           'lg:relative lg:top-0 lg:left-0 lg:block z-10'
         )}
       >
-        <div className={classNames('flex flex-col lg:flex-row gap-2 lg:gap-2.5')}>
+        <div className={classNames('flex flex-col lg:flex-row gap-2 lg:gap-2.5 lg:pl-7')}>
           {data.map((menuItem) => (
             <Button
               key={menuItem.id}
