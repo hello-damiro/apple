@@ -31,7 +31,7 @@ module.exports = {
         },
       },
       fontFamily: {
-        sfpro: ['SF Pro', 'sans-serif'],
+        sfpro: ['SF Pro'], // 'sans-serif'],
       },
       fontSize: {
         xxs: '0.5rem',
