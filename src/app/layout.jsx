@@ -1,5 +1,8 @@
 import './globals.css';
 import { sfpro } from '@/data/localFonts';
+import classNames from 'classnames';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 export const metadata = {
   title: 'Apple',
@@ -9,7 +12,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang='en' className='scroll-smooth'>
-      <body className={classNames(sfpro.className)}>{children}</body>
+      <body className={classNames(sfpro.className)}>
+        <Header />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
