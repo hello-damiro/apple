@@ -13,8 +13,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   // HEADER CONFIG
-  const theme = 'light';
-  const stickyHead = false;
+  const theme = 'dark';
+  const stickyHead = true;
 
   return (
     <html lang='en' className='scroll-smooth'>

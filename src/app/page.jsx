@@ -22,19 +22,10 @@ export default function Home() {
 
   return (
     <main className={classNames({ 'hidden lg:block': showNav, 'min-h-screen': true })}>
-      <Ribbon link='Shop iPhone' theme=''>
+      <Ribbon link='Shop iPhone' theme='dark'>
         Get $200–$640 in credit toward iPhone 14 <br className='block md:hidden' /> or iPhone 14 Pro when you trade in
         iPhone 11 or higher. <sup className='inline text-xxs'>3</sup>
       </Ribbon>
-
-      <Hero src='images/hero/hero_iphone14_yellow.jpeg' title='Some title here'>
-        <HeroTitle text='iPhone 14' />
-        <HeroSubText>Wonderfull.</HeroSubText>
-        <div>
-          <LinkText text='Learn more' icon='out' />
-          <LinkText text='Buy' />
-        </div>
-      </Hero>
 
       <Hero src='images/hero/hero_iphone14pro.jpeg' title='Some title here' theme='dark'>
         <PreText text='New' />
@@ -42,6 +33,15 @@ export default function Home() {
         <HeroSubText>Pro. Beyond.</HeroSubText>
         <div>
           <LinkText text='Learn more' />
+          <LinkText text='Buy' />
+        </div>
+      </Hero>
+
+      <Hero src='images/hero/hero_iphone14_yellow.jpeg' title='Some title here'>
+        <HeroTitle text='iPhone 14' />
+        <HeroSubText>Wonderfull.</HeroSubText>
+        <div>
+          <LinkText text='Learn more' icon='out' />
           <LinkText text='Buy' />
         </div>
       </Hero>
@@ -66,7 +66,7 @@ export default function Home() {
         <Half src='/images/promo/promo_vision_pro.jpeg' title='Vision Pro' position='down'>
           <PromoTitle text='Vision Pro' logo={true} />
           <PromoSubText>
-            Welcome to the era <br />
+            Welcome to the era <br className='md:hidden' />
             of spatial computing.
           </PromoSubText>
           <MoreText>Available early next year in the U.S.</MoreText>
@@ -75,7 +75,7 @@ export default function Home() {
         <Half src='/images/promo/promo_iphone_tradein_promo.jpeg' title='Apple Watch'>
           <PromoTitle text='Trade In' logo={true} />
           <PromoSubText>
-            Upgrade & save. <br />
+            Upgrade & save. <br className='md:hidden' />
             It's thet easy
           </PromoSubText>
           <LinkText text='See what your device is worth' />

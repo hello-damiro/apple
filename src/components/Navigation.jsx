@@ -14,7 +14,7 @@ const data = menuData;
 
 export default function Navigation({ theme = '' }) {
   const bgColor = theme === 'dark' ? 'bg-gray-bk' : 'bg-brand-white';
-  const textColor = theme === 'dark' ? 'text-gray-lt' : 'text-gray-xd';
+  const textColor = theme === 'dark' ? 'text-gray-md' : 'text-gray-xd';
   const hoverColor = theme === 'dark' ? 'hover:text-brand-white' : 'hover:text-brand-black';
 
   const [selectedMenu, setSelectedMenu] = useState(0);
