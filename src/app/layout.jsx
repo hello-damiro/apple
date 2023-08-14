@@ -2,7 +2,6 @@ import './globals.css';
 import sfpro from '../data/localFonts';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { ThemeProvider } from '@/context/ThemeContext';
 import { NavProvider } from '@/context/NavContext';
 import { BreakpointProvider } from '@/context/breakpointContext';
 import { StickyheadProvider } from '@/context/StickyheadContext';
@@ -22,13 +21,11 @@ export default function RootLayout({ children }) {
       <BreakpointProvider>
         <StickyheadProvider>
           <NavProvider>
-            <ThemeProvider>
-              <body className={sfpro.className}>
-                <Header theme={theme} stickyHead={stickyHead} />
-                {children}
-                <Footer />
-              </body>
-            </ThemeProvider>
+            <body className={sfpro.className}>
+              <Header theme={theme} stickyHead={stickyHead} />
+              {children}
+              <Footer />
+            </body>
           </NavProvider>
         </StickyheadProvider>
       </BreakpointProvider>
