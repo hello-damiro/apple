@@ -10,7 +10,9 @@ export default function Sitemap({ column, site }) {
       <Accordion type='multiple' className='md:hidden'>
         {selectedSite.collection.map((section, index) => (
           <AccordionItem key={index} value={`site-${index}`} className=''>
-            <AccordionTrigger className='font-semibold text-xs pb-3 no-underline'>{section.title}</AccordionTrigger>
+            <AccordionTrigger className='font-semibold text-xs pb-3 hover:no-underline'>
+              {section.title}
+            </AccordionTrigger>
             <AccordionContent>
               <div className='flex flex-col gap-2'>
                 {section.content.map((item, itemIndex) => (

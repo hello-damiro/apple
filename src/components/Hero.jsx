@@ -15,10 +15,16 @@ export default function Hero({ children, src, title, theme = '' }) {
           style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           blurDataURL={src}
           unoptimized={true}
+          priority='true'
         />
       </div>
       <div className='absolute top-1/2 -translate-y-1/2 h-full w-full '>
-        <div className={classNames('container mx-auto max-w-5xl p-6 text-center h-2/5 flex items-center', color)}>
+        <div
+          className={classNames(
+            'container mx-auto max-w-5xl p-6 text-center h-2/5 flex flex-col justify-center gap-1 md:gap-4 lg:gap-6 items-center',
+            color
+          )}
+        >
           {children}
         </div>
       </div>

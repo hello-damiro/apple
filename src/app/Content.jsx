@@ -1,16 +1,26 @@
 import Hero from '@/components/Hero';
 import Disclaimer from '@/components/Disclaimer';
+import { Title, LinkText, SubText, PreText } from '@/components/Texts';
 
 export default function Content() {
   return (
-    <main>
+    <>
       <Hero src={'images/hero/hero_iphone14pro.jpeg'} title='Some title here' theme='dark'>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae amet autem aperiam! Mollitia, tenetur, unde
-        laborum quaerat nostrum praesentium quis, odit enim quas veniam reiciendis quisquam.
+        <PreText text='New' />
+        <Title text='iPhone 14 Pro' />
+        <SubText>Pro. Beyond.</SubText>
+        <div>
+          <LinkText text='Learn more' />
+          <LinkText text='Buy' />
+        </div>
       </Hero>
       <Hero src={'images/hero/hero_iphone14_yellow.jpeg'} title='Some title here'>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae amet autem aperiam! Mollitia, tenetur, unde
-        laborum quaerat nostrum praesentium quis, odit enim quas veniam reiciendis quisquam.
+        <Title text='iPhone 14' />
+        <SubText>Wonderfull.</SubText>
+        <div>
+          <LinkText text='Learn more' icon='out' />
+          <LinkText text='Buy' />
+        </div>
       </Hero>
       <Disclaimer>
         <p>
@@ -42,6 +52,6 @@ export default function Content() {
           rights reserved.
         </p>
       </Disclaimer>
-    </main>
+    </>
   );
 }
