@@ -1,8 +1,15 @@
+'use client';
+
 import Hero from '@/components/Hero';
 import Disclaimer from '@/components/Disclaimer';
+import Ribbon from '@/components/Ribbon';
+import { useThemeUpdate } from '@/context/ThemeContext';
 import { Title, LinkText, SubText, PreText } from '@/components/Texts';
 
 export default function Content() {
+  const setTheme = useThemeUpdate();
+  setTheme('');
+
   return (
     <>
       <Hero src={'images/hero/hero_iphone14pro.jpeg'} title='Some title here' theme='dark'>
@@ -14,6 +21,10 @@ export default function Content() {
           <LinkText text='Buy' />
         </div>
       </Hero>
+      <Ribbon link='Shop iPhone'>
+        Get $200–$640 in credit toward iPhone 14 <br className='block md:hidden' /> or iPhone 14 Pro when you trade in
+        iPhone 11 or higher. <sup className='inline text-xxs'>3</sup>
+      </Ribbon>
       <Hero src={'images/hero/hero_iphone14_yellow.jpeg'} title='Some title here'>
         <Title text='iPhone 14' />
         <SubText>Wonderfull.</SubText>

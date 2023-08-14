@@ -2,6 +2,8 @@ import './globals.css';
 import sfpro from '../data/localFonts';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { ThemeProvider } from '@/context/ThemeContext';
+import { NavProvider } from '@/context/NavContext';
 
 export const metadata = {
   title: 'Apple',
@@ -11,11 +13,15 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang='en' className='scroll-smooth'>
-      <body className={sfpro}>
-        <Header />
-        {children}
-        <Footer />
-      </body>
+      <NavProvider>
+        <ThemeProvider>
+          <body className={sfpro}>
+            <Header />
+            {children}
+            <Footer />
+          </body>
+        </ThemeProvider>
+      </NavProvider>
     </html>
   );
 }
