@@ -15,7 +15,7 @@ const breakpoints = {
 };
 
 export function BreakpointProvider({ children }) {
-  const [windowWidth, setWindowWidth] = useState < number > 640;
+  const [windowWidth, setWindowWidth] = useState(640);
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);

@@ -1,10 +1,10 @@
 'use client';
 
 import classNames from 'classnames';
-import Sitemap from './Sitemap';
 import { siteData } from '@/data/site';
 import { Separator } from '@/components/ui/separator';
 import { useNav } from '@/context/NavContext';
+import Sitemap from './Sitemap';
 
 const sites = siteData;
 

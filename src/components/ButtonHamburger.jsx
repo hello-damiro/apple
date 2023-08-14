@@ -2,11 +2,9 @@
 
 import classNames from 'classnames';
 import { useNav, useNavUpdate } from '@/context/NavContext';
-import { useTheme } from '@/context/ThemeContext';
 
-export default function ButtonHamburger() {
-  const theme = useTheme();
-  const iconColor = theme === '' ? 'bg-brand-black' : 'bg-brand-white';
+export default function ButtonHamburger({ theme = '' }) {
+  const iconColor = theme === 'dark' ? 'bg-brand-white' : 'bg-brand-black';
 
   const showNav = useNav();
   const setNav = useNavUpdate();

@@ -1,6 +1,6 @@
 import localFont from 'next/font/local';
 
-export const sfpro = localFont({
+const sfpro = localFont({
   src: [
     {
       path: '../../public/fonts/SF-Pro-Text-Light.otf',
@@ -36,3 +36,5 @@ export const sfpro = localFont({
   variable: '--font-sfpro',
   preload: true,
 });
+
+export default sfpro;
