@@ -13,10 +13,10 @@ export default function Header({ theme = '', stickyHead = false, paddedTop = tru
   const showNav = useNav();
   const breakpoint = useBreakpoint();
 
-  const bgColor = theme === 'dark' ? 'bg-foreground' : 'bg-background';
-  const bgColor80 = theme === 'dark' ? 'bg-foreground/80' : 'bg-background/80';
-  const bgColor30 = theme === 'dark' ? 'bg-foreground/30' : 'bg-background/30';
-  const textColor = theme === 'dark' ? 'text-background' : 'text-foreground';
+  const bgColor = theme === 'dark' ? 'bg-gray-bk' : 'bg-gray-lt';
+  const bgColor80 = theme === 'dark' ? 'bg-gray-bk/80' : 'bg-gray-lt/80';
+  const bgColor30 = theme === 'dark' ? 'bg-gray-bk/30' : 'bg-gray-lt/30';
+  const textColor = theme === 'dark' ? 'text-gray-lt' : 'text-gray-bk';
   const setStickyHead = stickyHead ? 'fixed' : 'relative -mb-12';
 
   return (

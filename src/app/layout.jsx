@@ -14,7 +14,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   // HEADER CONFIG
-  const theme = 'dark';
+  const theme = 'light';
   const stickyHead = false;
 
   return (

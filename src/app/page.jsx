@@ -4,24 +4,15 @@ import classNames from 'classnames';
 import Hero from '@/components/Hero';
 import Disclaimer from '@/components/Disclaimer';
 import Ribbon from '@/components/Ribbon';
-import { Title, LinkText, SubText, PreText } from '@/components/Texts';
 import { useNav } from '@/context/NavContext';
+import { Title, LinkText, SubText, PreText } from '@/components/Texts';
 
 export default function Home() {
   const showNav = useNav();
 
   return (
-    <main className={classNames({ 'hidden lg:block': showNav, 'min-h-full': true })}>
-      <Hero src={'images/hero/hero_iphone14pro.jpeg'} title='Some title here' theme='dark'>
-        <PreText text='New' />
-        <Title text='iPhone 14 Pro' />
-        <SubText>Pro. Beyond.</SubText>
-        <div>
-          <LinkText text='Learn more' />
-          <LinkText text='Buy' />
-        </div>
-      </Hero>
-      <Ribbon link='Shop iPhone'>
+    <main className={classNames({ 'hidden lg:block': showNav, 'min-h-screen': true })}>
+      <Ribbon link='Shop iPhone' theme=''>
         Get $200–$640 in credit toward iPhone 14 <br className='block md:hidden' /> or iPhone 14 Pro when you trade in
         iPhone 11 or higher. <sup className='inline text-xxs'>3</sup>
       </Ribbon>
@@ -30,6 +21,15 @@ export default function Home() {
         <SubText>Wonderfull.</SubText>
         <div>
           <LinkText text='Learn more' icon='out' />
+          <LinkText text='Buy' />
+        </div>
+      </Hero>
+      <Hero src={'images/hero/hero_iphone14pro.jpeg'} title='Some title here' theme='dark'>
+        <PreText text='New' />
+        <Title text='iPhone 14 Pro' />
+        <SubText>Pro. Beyond.</SubText>
+        <div>
+          <LinkText text='Learn more' />
           <LinkText text='Buy' />
         </div>
       </Hero>
