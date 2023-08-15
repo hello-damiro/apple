@@ -18,8 +18,9 @@ export function Half({ children, src, title, position = '', theme = '' }) {
           height={0}
           style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           blurDataURL={src}
-          unoptimized={true}
-          priority='true'
+          placeholder='blur'
+          unoptimized
+          priority
         />
       </div>
       <div

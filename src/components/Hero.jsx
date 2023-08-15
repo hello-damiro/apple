@@ -15,8 +15,9 @@ export default function Hero({ children, src, altsrc = '', title, theme = '' }) 
           height={0}
           style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           blurDataURL={breakpoint === 'lg' || altsrc === '' ? src : altsrc}
-          unoptimized={true}
-          priority='true'
+          placeholder='blur'
+          unoptimized
+          priority
         />
       </div>
       <div className='absolute top-1/2 -translate-y-1/2 h-full w-full '>
