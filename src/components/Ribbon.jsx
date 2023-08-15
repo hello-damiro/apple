@@ -13,13 +13,13 @@ export default function Ribbon({ children, link, theme, delay = 1 }) {
       <motion.div
         initial={{ backgroundColor: finalColor }}
         animate={{ backgroundColor: [finalColor, '#007AFF', finalColor] }}
-        transition={{ delay: delay }}
+        transition={{ delay: delay, duration: 1.2 }}
         className={classNames(textColor, bgColor, 'w-full flex justify-center items-center')}
       >
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: delay + 0.5 }}
+          transition={{ delay: delay + 0.2, duration: 0.5 }}
           className='px-4 py-3 text-center text-sm font-light'
         >
           {children}
