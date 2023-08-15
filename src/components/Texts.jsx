@@ -6,17 +6,23 @@ export function HeroTitle({ text }) {
   return <h2 className='text-3xl md:text-[2.8rem] lg:text-[3.2rem] font-semibold'>{text}</h2>;
 }
 
-export function PromoTitle({ text, logo = false }) {
+export function PromoTitle({ children, text, logo = false }) {
   return (
     <h2 className='text-3xl md:text-[2rem] font-semibold flex items-baseline gap-2'>
       <BsApple size={24} className={`${!logo && 'hidden'}`} />
       {text}
+      {children}
     </h2>
   );
 }
 
-export function PreText({ text }) {
-  return <h3 className='text-sm md:text-base text-accent'>{text}</h3>;
+export function PreText({ children, text }) {
+  return (
+    <h3 className='text-sm md:text-base text-accent'>
+      {text}
+      {children}
+    </h3>
+  );
 }
 
 export function HeroSubText({ children }) {

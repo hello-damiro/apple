@@ -48,7 +48,10 @@ export default function Home() {
 
       <Promo>
         <Half src='/images/promo/promo_bts2023_startframe.jpeg' title='bts 2023'>
-          <PromoTitle text='Save on Mac or iPad for college.' />
+          <PromoTitle>
+            Save on Mac or iPad <br className='lg:hidden' />
+            for college.
+          </PromoTitle>
           <PromoSubText>Plus get a gift card up to $150.</PromoSubText>
           <LinkText text='Shop now' />
         </Half>
