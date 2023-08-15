@@ -5,16 +5,7 @@ import Hero from '@/components/Hero';
 import Disclaimer from '@/components/Disclaimer';
 import Ribbon from '@/components/Ribbon';
 import { useNav } from '@/context/NavContext';
-import {
-  HeroTitle,
-  PromoTitle,
-  HeroSubText,
-  PromoSubText,
-  LinkText,
-  SubText,
-  PreText,
-  MoreText,
-} from '@/components/Texts';
+import { HeroTitle, HeroSubText, PromoTitle, PromoSubText, LinkText, PreText, MoreText } from '@/components/Texts';
 import Promo, { Half } from '@/components/Promo';
 
 export default function Home() {
@@ -39,7 +30,7 @@ export default function Home() {
 
       <Hero src='images/hero/hero_iphone14_yellow.jpeg' title='Some title here'>
         <HeroTitle text='iPhone 14' />
-        <HeroSubText>Wonderfull.</HeroSubText>
+        <HeroSubText text='Wonderfull.' />
         <div>
           <LinkText text='Learn more' icon='out' />
           <LinkText text='Buy' />
@@ -52,12 +43,12 @@ export default function Home() {
             Save on Mac or iPad <br className='lg:hidden' />
             for college.
           </PromoTitle>
-          <PromoSubText>Plus get a gift card up to $150.</PromoSubText>
+          <PromoSubText text='Plus get a gift card up to $150.' />
           <LinkText text='Shop now' />
         </Half>
         <Half src='/images/promo/promo_watch.jpeg' title='Apple Watch' theme='dark'>
           <PromoTitle text='WATCH' logo={true} />
-          <PromoSubText>A healthy leap ahead</PromoSubText>
+          <PromoSubText text='A healthy leap ahead' />
           <div>
             <LinkText text='Learn more' />
             <LinkText text='Buy' />

@@ -2,8 +2,13 @@ import { BsApple } from 'react-icons/bs';
 import { Button } from './ui/button';
 import { MdChevronRight, MdOutlineNorthEast } from 'react-icons/md';
 
-export function HeroTitle({ text }) {
-  return <h2 className='text-3xl md:text-[2.8rem] lg:text-[3.2rem] font-semibold'>{text}</h2>;
+export function HeroTitle({ children, text }) {
+  return (
+    <h2 className='text-3xl md:text-[2.8rem] lg:text-[3.2rem] font-semibold'>
+      {text}
+      {children}
+    </h2>
+  );
 }
 
 export function PromoTitle({ children, text, logo = false }) {
@@ -25,16 +30,31 @@ export function PreText({ children, text }) {
   );
 }
 
-export function HeroSubText({ children }) {
-  return <h3 className='text-lg md:text-[1.4rem] lg:text-[1.6rem]'>{children}</h3>;
+export function HeroSubText({ children, text }) {
+  return (
+    <h3 className='text-lg md:text-[1.4rem] lg:text-[1.6rem]'>
+      {text}
+      {children}
+    </h3>
+  );
 }
 
-export function PromoSubText({ children }) {
-  return <h3 className='text-lg md:text-[1rem] lg:text-[1.2rem]'>{children}</h3>;
+export function PromoSubText({ children, text }) {
+  return (
+    <h3 className='text-lg md:text-[1rem] lg:text-[1.2rem]'>
+      {text}
+      {children}
+    </h3>
+  );
 }
 
-export function MoreText({ children }) {
-  return <h4 className='text-base text-gray-400'>{children}</h4>;
+export function MoreText({ children, text }) {
+  return (
+    <h4 className='text-base text-gray-400'>
+      {text}
+      {children}
+    </h4>
+  );
 }
 
 export function LinkText({ text, icon = '' }) {
