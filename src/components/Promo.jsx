@@ -7,6 +7,7 @@ export default function Promo({ children }) {
 
 export function Half({ children, src, title, position = '', theme = '' }) {
   const color = theme === '' ? 'text-brand-black' : 'text-brand-white';
+
   return (
     <div className='relative'>
       <div className='relative w-full h-[500px] lg:h-[580px]'>
@@ -15,7 +16,6 @@ export function Half({ children, src, title, position = '', theme = '' }) {
           alt={title}
           width={0}
           height={0}
-          sizes='full'
           style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           blurDataURL={src}
           unoptimized={true}

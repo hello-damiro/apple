@@ -45,7 +45,7 @@ export default function Header({ theme = '', stickyHead = false, paddedTop = tru
             <div className={textColor}>
               <HiOutlineMagnifyingGlass size={16} />
             </div>
-            <ButtonBag count={2} theme={theme} />
+            <ButtonBag count={3} theme={theme} />
             <ButtonHamburger theme={theme} />
           </div>
         </div>

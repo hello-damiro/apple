@@ -20,21 +20,26 @@ export default function Home() {
         iPhone 11 or higher. <sup className='inline text-xxs'>3</sup>
       </Ribbon>
 
-      <Hero src='images/hero/hero_iphone14_yellow.jpeg' title='Some title here'>
-        <HeroTitle text='iPhone 14' />
-        <HeroSubText text='Wonderfull.' />
-        <div>
-          <LinkText text='Learn more' icon='out' />
-          <LinkText text='Buy' />
-        </div>
-      </Hero>
-
-      <Hero src='images/hero/hero_iphone14pro.jpeg' title='Some title here' theme='dark'>
+      <Hero
+        src='images/hero/hero_iphone14pro.jpeg'
+        altsrc='images/hero/hero_iphone14pro_mobile.jpeg'
+        title='Some title here'
+        theme='dark'
+      >
         <PreText text='New' />
         <HeroTitle text='iPhone 14 Pro' />
         <HeroSubText>Pro. Beyond.</HeroSubText>
         <div>
           <LinkText text='Learn more' />
+          <LinkText text='Buy' />
+        </div>
+      </Hero>
+
+      <Hero src='images/hero/hero_iphone14_yellow.jpeg' title='Some title here'>
+        <HeroTitle text='iPhone 14' />
+        <HeroSubText text='Wonderfull.' />
+        <div>
+          <LinkText text='Learn more' icon='out' />
           <LinkText text='Buy' />
         </div>
       </Hero>
@@ -57,7 +62,6 @@ export default function Home() {
           </div>
         </Half>
       </Promo>
-
       <Promo>
         <Half src='/images/promo/promo_vision_pro.jpeg' title='Vision Pro' position='down'>
           <PromoTitle text='Vision Pro' logo={true} />
@@ -77,7 +81,6 @@ export default function Home() {
           <LinkText text='See what your device is worth' />
         </Half>
       </Promo>
-
       <Promo>
         <Half src='/images/promo/promo_apple_news_womens_world_cup.jpeg' title='News'>
           <PromoTitle text='News' logo={true} />
