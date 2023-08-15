@@ -13,7 +13,7 @@ export default function Ribbon({ children, link, theme }) {
       initial={{ backgroundColor: bgColor, height: 0 }}
       animate={{ backgroundColor: [bgColor, '#007AFF', finalColor], height: 'auto' }}
       transition={{ delay: 1 }}
-      className={classNames(textColor, `bg-[${bgColor}], 'w-full flex justify-center items-center'`)}
+      className={classNames(textColor, `bg-[${bgColor}]`, 'w-full flex justify-center items-center')}
     >
       <motion.div
         initial={{ opacity: 0 }}
@@ -23,9 +23,9 @@ export default function Ribbon({ children, link, theme }) {
       >
         {children}
         <Link href={'/iphone'} className='text-brand-blue pl-2 inline-block'>
-          <div className='flex items-center'>
+          <div className='flex items-center hover:underline underline-offset-4'>
             {link}
-            <MdChevronRight />
+            <MdChevronRight size={18} className='pt-0.5' />
           </div>
         </Link>
       </motion.div>
