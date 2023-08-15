@@ -34,7 +34,6 @@ const sfpro = localFont({
     },
   ],
   variable: '--font-sfpro',
-  preload: true,
 });
 
 export default sfpro;

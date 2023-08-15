@@ -95,7 +95,7 @@ export default function Navigation({ theme = '' }) {
           'absolute top-0 left-0 pt-14 w-full min-h-screen lg:min-h-full'
         )}
       >
-        <div className='container max-w-5xl px-4 pl-5 pt-8 pb-16 w-full'>
+        <div className='container max-w-5xl px-6 pt-8 pb-16 w-full'>
           <div className='flex flex-col gap-2'>
             <NavigationSheet id={selectedMenu} menu={data} theme={theme} />
           </div>
