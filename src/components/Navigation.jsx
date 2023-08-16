@@ -1,7 +1,6 @@
-'use client';
-
 import Link from 'next/link';
 import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useBreakpoint } from '@/context/breakpointContext';
 import { useNav, useNavUpdate } from '@/context/NavContext';
 import { Button } from './ui/button';
@@ -30,7 +29,7 @@ export default function Navigation({ theme = '' }) {
   };
 
   const handleMenuOver = (id) => {
-    if (breakpoint === 'lg' && setNav) {
+    if (setNav && breakpoint === 'lg') {
       setNav(true);
       setSelectedMenu(id);
     }
@@ -48,50 +47,87 @@ export default function Navigation({ theme = '' }) {
     setSubmenu(false);
   };
 
+  const arrowVariance = {
+    initial: { x: 20, opacity: 0 },
+    animate: { x: 0, opacity: 1, transition: { duration: 0.1 } },
+    exit: { x: -20, opacity: 0 },
+  };
+
+  const menuVariance = {
+    initial: { height: 0 },
+    animate: { height: 'auto', transition: { duration: 0.1 } },
+    exit: { height: 0 },
+  };
+
   return (
     <div className='text-xs' onMouseLeave={hideNav}>
-      <Button
-        size='icon'
-        variant='bare'
-        onClick={handleChevron}
-        className={merge(
-          textColor,
-          bgColor,
-          submenu ? 'flex' : 'hidden',
-          'absolute top-0 left-2 z-50 w-12 h-12 items-center justify-center'
-        )}
-      >
-        <MdChevronLeft size={30} />
-      </Button>
-      <div
+      {/* BACK BUTTON */}
+      <AnimatePresence mode='wait'>
+        <motion.button
+          key={submenu}
+          variants={arrowVariance}
+          initial='initial'
+          animate='animate'
+          exit='exit'
+          size='icon'
+          onClick={handleChevron}
+          className={merge(
+            textColor,
+            bgColor,
+            submenu ? 'flex' : 'hidden',
+            'absolute top-0 left-2 z-50 w-12 h-12 items-center justify-center bg-transparent'
+          )}
+        >
+          <MdChevronLeft size={30} />
+        </motion.button>
+      </AnimatePresence>
+
+      {/* MAIN MENU */}
+      <nav
         className={merge(
           showNav && !submenu ? 'absolute top-20 left-2' : 'hidden',
           'lg:relative lg:top-0 lg:left-0 lg:block z-10'
         )}
       >
-        <nav className='flex flex-col lg:flex-row gap-2 lg:gap-2.5 lg:pl-7'>
+        <ul className='flex flex-col lg:flex-row gap-2 lg:gap-2.5 lg:pl-7'>
           {data.map((menuItem) => (
-            <Button
-              key={menuItem.id}
-              onClick={() => handleMenuClick(menuItem.id)}
-              onMouseOver={() => handleMenuOver(menuItem.id)}
-              variant='bare'
-              className={merge(
-                hoverColor,
-                textColor,
-                'px-2.5 py-1.5 w-max text-left text-2xl font-medium lg:font-light lg:text-xs border-none'
+            <li key={menuItem.id}>
+              {breakpoint === 'lg' ? (
+                <Link
+                  href={menuItem.href}
+                  onMouseOver={() => handleMenuOver(menuItem.id)}
+                  className={merge(
+                    hoverColor,
+                    textColor,
+                    'px-2.5 py-1.5 w-max text-left text-2xl font-medium lg:font-light lg:text-xs'
+                  )}
+                >
+                  {menuItem.title}
+                </Link>
+              ) : (
+                <Button
+                  variant='bare'
+                  onClick={() => breakpoint !== 'lg' && handleMenuClick(menuItem.id)}
+                  className={merge(
+                    hoverColor,
+                    textColor,
+                    'px-2.5 py-1.5 w-max text-left text-2xl font-medium lg:font-light lg:text-xs'
+                  )}
+                >
+                  {menuItem.title}
+                </Button>
               )}
-            >
-              <Link href={`${breakpoint === 'lg' ? menuItem.href : ''}`}>{menuItem.title}</Link>
-            </Button>
+            </li>
           ))}
-        </nav>
-      </div>
+        </ul>
+      </nav>
+
+      {/* SUB MENU */}
       <div
         className={merge(
           bgColor,
-          !showNav && 'hidden',
-          'absolute top-0 left-0 pt-14 w-full min-h-screen lg:min-h-full'
+          'absolute top-0 left-0 pt-14 w-full min-h-screen lg:min-h-full',
+          !showNav && 'hidden'
         )}
       >
         <div className='container max-w-5xl px-6 pt-8 pb-16 w-full'>

@@ -38,11 +38,11 @@ export default function Header({ theme = '', stickyHead = false, paddedTop = tru
         )}
       >
         <div className='container max-w-5xl w-full h-12 px-6 flex flex-row gap-5 items-center justify-between'>
-          <Button size='icon' variant='bare' className={merge(textColor, 'lg:z-30')}>
+          <Button size='icon' variant='bare' className={merge(textColor, 'lg:z-30 -ml-1.5')}>
             <BsApple size={16} />
           </Button>
           <Navigation theme={theme} />
-          <div className='flex flex-row gap-4 items-center lg:z-30'>
+          <div className='flex flex-row space-x-4 items-center lg:z-30'>
             <Button size='icon' variant='bare' className={merge(textColor)}>
               <HiOutlineMagnifyingGlass size={16} />
             </Button>
@@ -51,6 +51,7 @@ export default function Header({ theme = '', stickyHead = false, paddedTop = tru
           </div>
         </div>
       </div>
+
       {/* BLUR BACKGROUND */}
       <div
         className={merge(bgColor30, !showNav && 'hidden', 'fixed z-10 top-0 min-h-screen w-full backdrop-blur-md')}

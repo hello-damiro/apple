@@ -16,7 +16,7 @@ export default function NavigationSheet({ id, menu, theme = '' }) {
   };
 
   return (
-    <div className={merge('flex flex-col lg:flex-row gap-12', textColor)}>
+    <nav className={merge('flex flex-col lg:flex-row gap-12', textColor)}>
       {selectedMenu.content.map((section, index) => (
         <div key={index} className='block'>
           <AnimatePresence mode='wait'>
@@ -39,6 +39,6 @@ export default function NavigationSheet({ id, menu, theme = '' }) {
           </AnimatePresence>
         </div>
       ))}
-    </div>
+    </nav>
   );
 }
