@@ -9,7 +9,7 @@ export function Half({ children, src, title, position = '', theme = '' }) {
   const color = theme === '' ? 'text-brand-black' : 'text-brand-white';
 
   return (
-    <div className='relative'>
+    <section className='relative'>
       <div className='relative w-full h-[500px] lg:h-[580px]'>
         <Image
           src={src}
@@ -35,6 +35,6 @@ export function Half({ children, src, title, position = '', theme = '' }) {
           {children}
         </div>
       </div>
-    </div>
+    </section>
   );
 }

@@ -5,7 +5,7 @@ export default function Sitemap({ column, site }) {
   const selectedSite = site.find((siteItem) => siteItem.column === column);
   if (!selectedSite) return null;
   return (
-    <div className='flex flex-col text-gray-dk'>
+    <nav className='flex flex-col text-gray-dk'>
       {/* MOBILE VERSION */}
       <Accordion type='multiple' className='md:hidden'>
         {selectedSite.collection.map((section, index) => (
@@ -41,6 +41,6 @@ export default function Sitemap({ column, site }) {
           </div>
         ))}
       </div>
-    </div>
+    </nav>
   );
 }

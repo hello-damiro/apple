@@ -1,6 +1,7 @@
 'use client';
 
 import { twMerge as merge } from 'tailwind-merge';
+import { Button } from './ui/button';
 import ButtonHamburger from './ButtonHamburger';
 import ButtonBag from './ButtonBag';
 import Navigation from './Navigation';
@@ -37,14 +38,14 @@ export default function Header({ theme = '', stickyHead = false, paddedTop = tru
         )}
       >
         <div className='container max-w-5xl w-full h-12 px-6 flex flex-row gap-5 items-center justify-between'>
-          <div className={merge(textColor, 'lg:z-30')}>
+          <Button size='icon' variant='bare' className={merge(textColor, 'lg:z-30')}>
             <BsApple size={16} />
-          </div>
+          </Button>
           <Navigation theme={theme} />
-          <div className='flex flex-row gap-5 items-center lg:z-30'>
-            <div className={textColor}>
+          <div className='flex flex-row gap-4 items-center lg:z-30'>
+            <Button size='icon' variant='bare' className={merge(textColor)}>
               <HiOutlineMagnifyingGlass size={16} />
-            </div>
+            </Button>
             <ButtonBag count={3} theme={theme} />
             <ButtonHamburger theme={theme} />
           </div>

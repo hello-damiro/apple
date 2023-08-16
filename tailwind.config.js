@@ -5,10 +5,6 @@ module.exports = {
   theme: {
     container: {
       center: true,
-      padding: '2rem',
-      screens: {
-        '2xl': '1400px',
-      },
     },
     extend: {
       colors: {
@@ -30,8 +26,11 @@ module.exports = {
           bk: '#1c1c1d',
         },
       },
+      screens: {
+        '2xl': '1400px',
+      },
       fontFamily: {
-        sfpro: ['SF Pro'], // 'sans-serif'],
+        sfpro: ['SF Pro', 'sans-serif'],
       },
       fontSize: {
         xxs: '0.5rem',
