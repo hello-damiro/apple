@@ -123,13 +123,11 @@ export default function Navigation({ theme = '' }) {
       </nav>
 
       {/* SUB MENU */}
-      <div
-        className={cn(bgColor, 'absolute top-0 left-0 pt-14 w-full min-h-screen lg:min-h-full', !showNav && 'hidden')}
-      >
-        <div className='container max-w-5xl px-6 pt-8 pb-16 w-full'>
-          <div className='flex flex-col gap-2'>
-            <NavigationSheet id={selectedMenu} menu={data} theme={theme} />
-          </div>
+      <div className={cn('absolute top-0 left-0 w-full min-h-screen lg:min-h-full', bgColor, !showNav && 'hidden')}>
+        <div
+          className={cn('container max-w-5xl w-full bg-red-300/80 h-auto transition-height duration-150 ease-in-out')}
+        >
+          <NavigationSheet id={selectedMenu} menu={data} theme={theme} hide={false} />
         </div>
       </div>
     </div>

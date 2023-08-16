@@ -76,7 +76,7 @@ export default function Home() {
           <PromoTitle text='Trade In' logo={true} />
           <PromoSubText>
             Upgrade & save. <br className='md:hidden' />
-            It's thet easy
+            Its thet easy
           </PromoSubText>
           <LinkText text='See what your device is worth' />
         </Half>

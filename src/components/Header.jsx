@@ -8,7 +8,7 @@ import Navigation from './Navigation';
 import { BsApple } from 'react-icons/bs';
 import { HiOutlineMagnifyingGlass } from 'react-icons/hi2';
 import { useBreakpoint } from '@/context/breakpointContext';
-import { useThemeUpdate } from '@/context/ThemeContext';
+import { useTheme, useThemeUpdate } from '@/context/ThemeContext';
 import { useNav } from '@/context/NavContext';
 import { useEffect } from 'react';
 
@@ -25,7 +25,7 @@ export default function Header({ theme = '', stickyHead = false, paddedTop = tru
 
   useEffect(() => {
     setTheme(theme);
-  }, [theme]);
+  }, [theme, setTheme]);
 
   return (
     <header>

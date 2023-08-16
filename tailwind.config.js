@@ -7,6 +7,12 @@ module.exports = {
       center: true,
     },
     extend: {
+      screens: {
+        '2xl': '1400px',
+      },
+      fontFamily: {
+        sfpro: ['SF Pro', 'sans-serif'],
+      },
       colors: {
         foreground: '#000000',
         background: '#ffffff',
@@ -26,14 +32,8 @@ module.exports = {
           bk: '#1c1c1d',
         },
       },
-      screens: {
-        '2xl': '1400px',
-      },
-      fontFamily: {
-        sfpro: ['SF Pro', 'sans-serif'],
-      },
-      fontSize: {
-        xxs: '0.5rem',
+      transitionProperty: {
+        height: 'height',
       },
       keyframes: {
         'accordion-down': {
