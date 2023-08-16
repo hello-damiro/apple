@@ -7,7 +7,7 @@ import { useNav, useNavUpdate } from '@/context/NavContext';
 import { Button } from './ui/button';
 import { MdChevronLeft } from 'react-icons/md';
 import { menuData } from '../data/menu';
-import classNames from 'classnames';
+import { twMerge as merge } from 'tailwind-merge';
 import NavigationSheet from './NavigationSheet';
 
 const data = menuData;
@@ -37,47 +37,43 @@ export default function Navigation({ theme = '' }) {
   };
 
   const hideNav = () => {
-    if (setNav) {
-      setNav(false);
-      setSelectedMenu(0);
-      setSubmenu(false);
-    }
+    setNav(false);
+    setSelectedMenu(0);
+    setSubmenu(false);
   };
 
   const handleChevron = () => {
-    if (setNav) {
-      setSelectedMenu(0);
-      setNav(true);
-      setSubmenu(false);
-    }
+    setSelectedMenu(0);
+    setNav(true);
+    setSubmenu(false);
   };
 
   return (
     <div className='text-xs' onMouseLeave={hideNav}>
       <div
         onClick={handleChevron}
-        className={classNames(
+        className={merge(
           textColor,
           bgColor,
-          `${showNav && submenu ? 'block' : 'hidden'}`,
+          showNav && submenu ? 'block' : 'hidden',
           'absolute top-0 left-1 z-50 w-12 h-12 items-center flex justify-center cursor-pointer'
         )}
       >
         <MdChevronLeft size='30px' />
       </div>
       <div
-        className={classNames(
-          `${showNav && !submenu ? 'absolute top-20 left-2' : 'hidden'}`,
+        className={merge(
+          showNav && !submenu ? 'absolute top-20 left-2' : 'hidden',
           'lg:relative lg:top-0 lg:left-0 lg:block z-10'
         )}
       >
-        <div className={classNames('flex flex-col lg:flex-row gap-2 lg:gap-2.5 lg:pl-7')}>
+        <div className='flex flex-col lg:flex-row gap-2 lg:gap-2.5 lg:pl-7'>
           {data.map((menuItem) => (
             <Button
               key={menuItem.id}
               onClick={() => handleMenuClick(menuItem.id)}
               onMouseOver={() => handleMenuOver(menuItem.id)}
-              className={classNames(
+              className={merge(
                 hoverColor,
                 textColor,
                 'px-2.5 py-1.5 w-max text-left text-2xl font-medium lg:font-light lg:text-xs border-none shadow-none bg-transparent hover:bg-transparent'
@@ -89,9 +85,9 @@ export default function Navigation({ theme = '' }) {
         </div>
       </div>
       <div
-        className={classNames(
+        className={merge(
           bgColor,
-          `${!showNav && 'hidden'}`,
+          !showNav && 'hidden',
           'absolute top-0 left-0 pt-14 w-full min-h-screen lg:min-h-full'
         )}
       >

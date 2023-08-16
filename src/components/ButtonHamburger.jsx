@@ -1,6 +1,6 @@
 'use client';
 
-import classNames from 'classnames';
+import { twMerge as merge } from 'tailwind-merge';
 import { useNav, useNavUpdate } from '@/context/NavContext';
 
 export default function ButtonHamburger({ theme = '' }) {
@@ -10,26 +10,24 @@ export default function ButtonHamburger({ theme = '' }) {
   const setNav = useNavUpdate();
 
   const handleNavClick = () => {
-    if (setNav) {
-      const toggleNav = !showNav;
-      setNav(toggleNav);
-    }
+    const toggleNav = !showNav;
+    setNav(toggleNav);
   };
 
   return (
-    <div className='z-50 lg:hidden h-12 lg:h-11 w-4 lg:w-4 cursor-pointer' onClick={handleNavClick}>
+    <div onClick={handleNavClick} className={merge('z-50 lg:hidden h-12 lg:h-11 w-4 lg:w-4 cursor-pointer')}>
       <div
-        className={classNames(
+        className={merge(
           iconColor,
-          'relative min-h-1 h-[1.5px] w-full mt-5 transiton duration-200',
-          `${showNav && 'rotate-45 translate-y-[3.5px]'}`
+          showNav && 'rotate-45 translate-y-[3.5px]',
+          'relative min-h-1 h-[1.5px] w-full mt-5 duration-200'
         )}
       />
       <div
-        className={classNames(
+        className={merge(
           iconColor,
-          'relative min-h-1 h-[1.5px] w-full mt-1.5 transiton duration-200',
-          `${showNav && '-rotate-45 -translate-y-1'}`
+          showNav && '-rotate-45 -translate-y-1',
+          'relative min-h-1 h-[1.5px] w-full mt-1.5 duration-200'
         )}
       />
     </div>

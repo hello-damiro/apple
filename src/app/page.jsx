@@ -2,7 +2,7 @@
 
 import { useNav } from '@/context/NavContext';
 import { useTheme } from '@/context/ThemeContext';
-import classNames from 'classnames';
+import { twMerge as merge } from 'tailwind-merge';
 import Hero from '@/components/Hero';
 import Disclaimer from '@/components/Disclaimer';
 import Ribbon from '@/components/Ribbon';
@@ -14,15 +14,15 @@ export default function Home() {
   const theme = useTheme();
 
   return (
-    <main className={classNames({ 'hidden lg:block': showNav, 'min-h-screen': true })}>
+    <main className={merge(showNav && 'hidden lg:block', 'min-h-screen')}>
       <Ribbon link='Shop iPhone' theme={theme}>
         Get $200–$640 in credit toward iPhone 14 <br className='block md:hidden' /> or iPhone 14 Pro when you trade in
         iPhone 11 or higher. <sup className='inline text-xxs'>3</sup>
       </Ribbon>
 
       <Hero
-        src='images/hero/hero_iphone14pro.jpeg'
-        altsrc='images/hero/hero_iphone14pro_mobile.jpeg'
+        src='/images/hero/hero_iphone14pro.jpeg'
+        altsrc='/images/hero/hero_iphone14pro_mobile.jpeg'
         title='Some title here'
         theme='dark'
       >
@@ -35,7 +35,7 @@ export default function Home() {
         </div>
       </Hero>
 
-      <Hero src='images/hero/hero_iphone14_yellow.jpeg' title='Some title here'>
+      <Hero src='/images/hero/hero_iphone14_yellow.jpeg' title='Some title here'>
         <HeroTitle text='iPhone 14' />
         <HeroSubText text='Wonderfull.' />
         <div>

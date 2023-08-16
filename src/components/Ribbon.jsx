@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import classNames from 'classnames';
+import { twMerge as merge } from 'tailwind-merge';
 import { MdChevronRight } from 'react-icons/md';
 
 export default function Ribbon({ children, link, theme, delay = 1 }) {
@@ -14,7 +14,7 @@ export default function Ribbon({ children, link, theme, delay = 1 }) {
         initial={{ backgroundColor: finalColor }}
         animate={{ backgroundColor: [finalColor, '#007AFF', finalColor] }}
         transition={{ delay: delay, duration: 1.2 }}
-        className={classNames(textColor, bgColor, 'w-full flex justify-center items-center')}
+        className={merge(textColor, bgColor, 'w-full flex justify-center items-center')}
       >
         <motion.div
           initial={{ opacity: 0 }}

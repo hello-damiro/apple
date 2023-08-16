@@ -1,6 +1,6 @@
 'use client';
 
-import classNames from 'classnames';
+import { twMerge as merge } from 'tailwind-merge';
 import ButtonHamburger from './ButtonHamburger';
 import ButtonBag from './ButtonBag';
 import Navigation from './Navigation';
@@ -29,15 +29,15 @@ export default function Header({ theme = '', stickyHead = false, paddedTop = tru
   return (
     <header>
       <div
-        className={classNames(
+        className={merge(
           bgColor80,
           setStickyHead,
-          'z-30 w-full backdrop-blur-md',
-          `${showNav && breakpoint !== 'lg' ? 'relative' : 'fixed'}`
+          showNav && breakpoint !== 'lg' ? 'relative' : 'fixed',
+          'z-30 w-full backdrop-blur-md'
         )}
       >
         <div className='container max-w-5xl w-full h-12 px-6 flex flex-row gap-5 items-center justify-between'>
-          <div className={classNames(textColor, 'lg:z-30')}>
+          <div className={merge(textColor, 'lg:z-30')}>
             <BsApple size={16} />
           </div>
           <Navigation theme={theme} />
@@ -52,13 +52,9 @@ export default function Header({ theme = '', stickyHead = false, paddedTop = tru
       </div>
       {/* BLUR BACKGROUND */}
       <div
-        className={classNames(
-          bgColor30,
-          `${!showNav && 'hidden'}`,
-          'fixed z-10 top-0 min-h-screen w-full backdrop-blur-md'
-        )}
+        className={merge(bgColor30, !showNav && 'hidden', 'fixed z-10 top-0 min-h-screen w-full backdrop-blur-md')}
       />
-      <div className={classNames('relative h-12 w-full', bgColor)} />
+      <div className={merge('relative h-12 w-full', bgColor)} />
     </header>
   );
 }
