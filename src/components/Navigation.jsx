@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useBreakpoint } from '@/context/breakpointContext';
 import { useNav, useNavUpdate } from '@/context/NavContext';
@@ -35,6 +35,13 @@ export default function Navigation({ theme = '' }) {
     }
   };
 
+  const handleMenuOut = () => {
+    if (setNav && breakpoint === 'lg') {
+      setNav(false);
+      setSelectedMenu(0);
+    }
+  };
+
   const hideNav = () => {
     setNav(false);
     setSelectedMenu(0);
@@ -47,16 +54,14 @@ export default function Navigation({ theme = '' }) {
     setSubmenu(false);
   };
 
-  const arrowVariance = {
+  const animation = {
     initial: { x: 20, opacity: 0 },
     animate: { x: 0, opacity: 1, transition: { duration: 0.1 } },
-    exit: { x: -20, opacity: 0 },
+    exit: { x: -20, opacity: 0, transition: { duration: 0.1 } },
   };
 
-  const menuVariance = {
-    initial: { height: 0 },
-    animate: { height: 'auto', transition: { duration: 0.1 } },
-    exit: { height: 0 },
+  const isHidden = (id) => {
+    return id === selectedMenu ? true : false;
   };
 
   return (
@@ -65,7 +70,7 @@ export default function Navigation({ theme = '' }) {
       <AnimatePresence mode='wait'>
         <motion.button
           key={submenu}
-          variants={arrowVariance}
+          variants={animation}
           initial='initial'
           animate='animate'
           exit='exit'
@@ -123,11 +128,12 @@ export default function Navigation({ theme = '' }) {
       </nav>
 
       {/* SUB MENU */}
-      <div className={cn('absolute top-0 left-0 w-full min-h-screen lg:min-h-full', bgColor, !showNav && 'hidden')}>
-        <div
-          className={cn('container max-w-5xl w-full bg-red-300/80 h-auto transition-height duration-150 ease-in-out')}
-        >
-          <NavigationSheet id={selectedMenu} menu={data} theme={theme} hide={false} />
+      <div className={cn('absolute top-0 left-0 w-full', bgColor, breakpoint !== 'lg' && showNav && 'h-[100vh]')}>
+        <div className={cn('container max-w-5xl w-full')}>
+          {data.map(
+            (menuItem) =>
+              isHidden(menuItem.id) && <NavigationSheet key={menuItem.id} id={menuItem.id} menu={data} theme={theme} />
+          )}
         </div>
       </div>
     </div>

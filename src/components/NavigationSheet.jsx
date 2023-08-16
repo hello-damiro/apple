@@ -1,21 +1,15 @@
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 
-export default function NavigationSheet({ id, menu, hide = true, theme = '' }) {
+export default function NavigationSheet({ id, menu, theme = '' }) {
   const textColor = theme === 'dark' ? 'text-gray-md' : 'text-gray-xd';
   const hoverColor = theme === 'dark' ? 'hover:text-background' : 'hover:text-foreground';
 
   const selectedMenu = menu.find((menuItem) => menuItem.id === id);
   if (!selectedMenu) return null;
 
-  const animations = {
-    initial: { opacity: 0, x: -20 },
-    animate: { opacity: 1, x: 0, transition: { delay: 0.2, duration: 0.2 } },
-    exit: { opacity: 0, x: 20 },
-  };
-
   return (
-    <nav className={cn('flex flex-col lg:flex-row gap-12 px-6 pt-20 pb-16', textColor, hide && 'hidden')}>
+    <nav className={cn('flex flex-col lg:flex-row gap-12 px-6 pt-20 pb-16', textColor)}>
       {selectedMenu.content.map((section, index) => (
         <div key={index}>
           <h4 className='pb-4 font-light text-gray-rg'>{section.name}</h4>
