@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { twMerge as merge } from 'tailwind-merge';
+import { cn } from '@/lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function NavigationSheet({ id, menu, theme = '' }) {
@@ -16,18 +16,18 @@ export default function NavigationSheet({ id, menu, theme = '' }) {
   };
 
   return (
-    <nav className={merge('flex flex-col lg:flex-row gap-12', textColor)}>
+    <nav className={cn('flex flex-col lg:flex-row gap-12', textColor)}>
       {selectedMenu.content.map((section, index) => (
         <div key={index} className='block'>
           <AnimatePresence mode='wait'>
             <motion.div key={id} variants={animations} initial='initial' animate='animate' exit='exit'>
               <h4 className='pb-4 font-light text-gray-rg'>{section.name}</h4>
-              <div className={merge('flex flex-col', index === 0 ? 'pr-16  space-y-2' : 'pr-0 space-y-2')}>
+              <div className={cn('flex flex-col', index === 0 ? 'pr-16  space-y-2' : 'pr-0 space-y-2')}>
                 {section.collection.map((item, itemIndex) => (
                   <Link
                     key={itemIndex}
                     href={item.href}
-                    className={merge(hoverColor, index === 0 ? 'font-medium text-2xl' : 'font-semibold text-xs')}
+                    className={cn(hoverColor, index === 0 ? 'font-medium text-2xl' : 'font-semibold text-xs')}
                   >
                     {item.link}
                   </Link>

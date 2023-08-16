@@ -1,6 +1,6 @@
 'use client';
 
-import { twMerge as merge } from 'tailwind-merge';
+import { cn } from '@/lib/utils';
 import { Button } from './ui/button';
 import ButtonHamburger from './ButtonHamburger';
 import ButtonBag from './ButtonBag';
@@ -30,7 +30,7 @@ export default function Header({ theme = '', stickyHead = false, paddedTop = tru
   return (
     <header>
       <div
-        className={merge(
+        className={cn(
           bgColor80,
           setStickyHead,
           showNav && breakpoint !== 'lg' ? 'relative' : 'fixed',
@@ -38,12 +38,12 @@ export default function Header({ theme = '', stickyHead = false, paddedTop = tru
         )}
       >
         <div className='container max-w-5xl w-full h-12 px-6 flex flex-row gap-5 items-center justify-between'>
-          <Button size='icon' variant='bare' className={merge(textColor, 'lg:z-30 -ml-1.5')}>
+          <Button size='icon' variant='bare' className={cn(textColor, 'lg:z-30 -ml-1.5')}>
             <BsApple size={16} />
           </Button>
           <Navigation theme={theme} />
           <div className='flex flex-row space-x-4 items-center lg:z-30'>
-            <Button size='icon' variant='bare' className={merge(textColor)}>
+            <Button size='icon' variant='bare' className={cn(textColor)}>
               <HiOutlineMagnifyingGlass size={16} />
             </Button>
             <ButtonBag count={3} theme={theme} />
@@ -53,10 +53,8 @@ export default function Header({ theme = '', stickyHead = false, paddedTop = tru
       </div>
 
       {/* BLUR BACKGROUND */}
-      <div
-        className={merge(bgColor30, !showNav && 'hidden', 'fixed z-10 top-0 min-h-screen w-full backdrop-blur-md')}
-      />
-      <div className={merge('relative h-12 w-full', bgColor)} />
+      <div className={cn(bgColor30, !showNav && 'hidden', 'fixed z-10 top-0 min-h-screen w-full backdrop-blur-md')} />
+      <div className={cn('relative h-12 w-full', bgColor)} />
     </header>
   );
 }

@@ -1,7 +1,7 @@
 'use client';
 
 import { Button } from './ui/button';
-import { twMerge as merge } from 'tailwind-merge';
+import { cn } from '@/lib/utils';
 import { useNav, useNavUpdate } from '@/context/NavContext';
 
 export default function ButtonHamburger({ theme = '' }) {
@@ -16,16 +16,16 @@ export default function ButtonHamburger({ theme = '' }) {
   };
 
   return (
-    <Button size='icon' variant='bare' onClick={handleNavClick} className={merge('z-50 lg:hidden h-6 w-6')}>
+    <Button size='icon' variant='bare' onClick={handleNavClick} className={cn('z-50 lg:hidden h-6 w-6')}>
       <div
-        className={merge(
+        className={cn(
           iconColor,
           'absolute min-h-1 h-[1px] w-4 translate-y-[3.5px] duration-200',
           showNav && 'rotate-45 translate-y-[0px]'
         )}
       />
       <div
-        className={merge(
+        className={cn(
           iconColor,
           'absolute min-h-1 h-[1px] w-4 -translate-y-[3.5px] duration-200',
           showNav && '-rotate-45 -translate-y-[0px]'

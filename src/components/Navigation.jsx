@@ -6,7 +6,7 @@ import { useNav, useNavUpdate } from '@/context/NavContext';
 import { Button } from './ui/button';
 import { MdChevronLeft } from 'react-icons/md';
 import { menuData } from '../data/menu';
-import { twMerge as merge } from 'tailwind-merge';
+import { cn } from '@/lib/utils';
 import NavigationSheet from './NavigationSheet';
 
 const data = menuData;
@@ -71,7 +71,7 @@ export default function Navigation({ theme = '' }) {
           exit='exit'
           size='icon'
           onClick={handleChevron}
-          className={merge(
+          className={cn(
             textColor,
             bgColor,
             submenu ? 'flex' : 'hidden',
@@ -84,7 +84,7 @@ export default function Navigation({ theme = '' }) {
 
       {/* MAIN MENU */}
       <nav
-        className={merge(
+        className={cn(
           showNav && !submenu ? 'absolute top-20 left-2' : 'hidden',
           'lg:relative lg:top-0 lg:left-0 lg:block z-10'
         )}
@@ -96,7 +96,7 @@ export default function Navigation({ theme = '' }) {
                 <Link
                   href={menuItem.href}
                   onMouseOver={() => handleMenuOver(menuItem.id)}
-                  className={merge(
+                  className={cn(
                     hoverColor,
                     textColor,
                     'px-2.5 py-1.5 w-max text-left text-2xl font-medium lg:font-light lg:text-xs'
@@ -108,7 +108,7 @@ export default function Navigation({ theme = '' }) {
                 <Button
                   variant='bare'
                   onClick={() => breakpoint !== 'lg' && handleMenuClick(menuItem.id)}
-                  className={merge(
+                  className={cn(
                     hoverColor,
                     textColor,
                     'px-2.5 py-1.5 w-max text-left text-2xl font-medium lg:font-light lg:text-xs'
@@ -124,11 +124,7 @@ export default function Navigation({ theme = '' }) {
 
       {/* SUB MENU */}
       <div
-        className={merge(
-          bgColor,
-          'absolute top-0 left-0 pt-14 w-full min-h-screen lg:min-h-full',
-          !showNav && 'hidden'
-        )}
+        className={cn(bgColor, 'absolute top-0 left-0 pt-14 w-full min-h-screen lg:min-h-full', !showNav && 'hidden')}
       >
         <div className='container max-w-5xl px-6 pt-8 pb-16 w-full'>
           <div className='flex flex-col gap-2'>

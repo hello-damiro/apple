@@ -1,5 +1,5 @@
 import AdaptiveImage from '@/lib/adaptiveImage';
-import { twMerge as merge } from 'tailwind-merge';
+import { cn } from '@/lib/utils';
 
 export default function Hero({ children, src, altsrc = '', title, theme = '' }) {
   const color = theme === '' ? 'text-brand-black' : 'text-brand-white';
@@ -13,7 +13,7 @@ export default function Hero({ children, src, altsrc = '', title, theme = '' }) 
       {/* AD COPY */}
       <div className='absolute top-1/2 -translate-y-1/2 h-full w-full '>
         <div
-          className={merge(
+          className={cn(
             color,
             'container mx-auto max-w-5xl p-6 text-center h-2/5 flex flex-col',
             'justify-center gap-1 md:gap-4 lg:gap-6 items-center'

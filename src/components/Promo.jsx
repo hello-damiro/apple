@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { twMerge as merge } from 'tailwind-merge';
+import { cn } from '@/lib/utils';
 
 export default function Promo({ children }) {
   return <div className='w-full flex flex-col md:flex-row gap-3 px-0 md:px-3 pb-3'>{children}</div>;
@@ -23,11 +23,9 @@ export function Half({ children, src, title, position = '', theme = '' }) {
           priority
         />
       </div>
-      <div
-        className={merge('absolute h-full w-full -translate-y-1/2', position === 'down' ? 'top-5/2 mt-12' : 'top-1/2')}
-      >
+      <div className={cn('absolute h-full w-full -translate-y-1/2', position === 'down' ? 'top-5/2 mt-12' : 'top-1/2')}>
         <div
-          className={merge(
+          className={cn(
             color,
             'container mx-auto max-w-5xl p-6 text-center h-2/5 flex flex-col justify-center gap-1 lg:gap-3 items-center'
           )}

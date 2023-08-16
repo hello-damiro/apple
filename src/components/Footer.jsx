@@ -1,6 +1,6 @@
 'use client';
 
-import { twMerge as merge } from 'tailwind-merge';
+import { cn } from '@/lib/utils';
 import { siteData } from '@/data/site';
 import { Separator } from '@/components/ui/separator';
 import { useNav } from '@/context/NavContext';
@@ -11,7 +11,7 @@ const sites = siteData;
 export default function Footer() {
   const showNav = useNav();
   return (
-    <footer className={merge(showNav && 'hidden md:block', 'w-full bg-gray-lt text-xs font-light')}>
+    <footer className={cn(showNav && 'hidden md:block', 'w-full bg-gray-lt text-xs font-light')}>
       <div className='container max-w-5xl mx-auto p-6'>
         <div className='grid grid-cols-1 md:grid-cols-5 md:gap-4'>
           {sites.map((site) => {
