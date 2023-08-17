@@ -1,17 +1,26 @@
 'use client';
 
+import { useEffect } from 'react';
 import { useNav } from '@/context/NavContext';
-import { useTheme } from '@/context/ThemeContext';
+import { useTheme, useThemeUpdate } from '@/context/ThemeContext';
+import { useStickyhead, useStickyheadUpdate } from '@/context/StickyheadContext';
 import { cn } from '@/lib/utils';
 import Hero from '@/components/Hero';
 import Disclaimer from '@/components/Disclaimer';
-import Ribbon from '@/components/Ribbon';
-import Promo, { Half } from '@/components/Promo';
 import { HeroTitle, HeroSubText, PromoTitle, PromoSubText, LinkText, PreText, MoreText } from '@/components/Texts';
 
 export default function Stor() {
   const showNav = useNav();
+  const setTheme = useThemeUpdate();
   const theme = useTheme();
+  const setStickyHead = useStickyheadUpdate();
+  const stickyHead = useStickyhead();
+
+  useEffect(() => {
+    setTheme('dark');
+    setStickyHead(true);
+    console.log('did mount on store', theme, stickyHead);
+  }, []);
 
   return (
     <main className={cn(showNav && 'hidden lg:block', 'min-h-screen')}>

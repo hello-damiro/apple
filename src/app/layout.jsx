@@ -5,6 +5,7 @@ import Footer from '../components/Footer';
 import { NavProvider } from '@/context/NavContext';
 import { BreakpointProvider } from '@/context/breakpointContext';
 import { ThemeProvider } from '@/context/ThemeContext';
+import { StickyheadProvider } from '@/context/StickyheadContext';
 
 export const metadata = {
   title: 'Apple',
@@ -12,21 +13,19 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  // HEADER CONFIG
-  const theme = 'dark';
-  const stickyHead = true;
-
   return (
     <html lang='en' className='scroll-smooth'>
       <BreakpointProvider>
         <ThemeProvider>
-          <NavProvider>
-            <body className={sfpro.className}>
-              <Header theme={theme} stickyHead={stickyHead} />
-              {children}
-              <Footer />
-            </body>
-          </NavProvider>
+          <StickyheadProvider>
+            <NavProvider>
+              <body className={sfpro.className}>
+                <Header />
+                {children}
+                <Footer />
+              </body>
+            </NavProvider>
+          </StickyheadProvider>
         </ThemeProvider>
       </BreakpointProvider>
     </html>

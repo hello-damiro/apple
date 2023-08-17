@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useBreakpoint } from '@/context/breakpointContext';
 import { useNav, useNavUpdate } from '@/context/NavContext';
@@ -56,7 +56,7 @@ export default function Navigation({ theme = '' }) {
 
   const animation = {
     initial: { x: 20, opacity: 0 },
-    animate: { x: 0, opacity: 1, transition: { duration: 0.1 } },
+    animate: { x: 0, opacity: 1, transition: { delay: 0.2, duration: 0.1 } },
     exit: { x: -20, opacity: 0, transition: { duration: 0.1 } },
   };
 
@@ -101,6 +101,7 @@ export default function Navigation({ theme = '' }) {
                 <Link
                   href={menuItem.href}
                   onMouseOver={() => handleMenuOver(menuItem.id)}
+                  onClick={hideNav}
                   className={cn(
                     hoverColor,
                     textColor,
