@@ -2,13 +2,14 @@
 
 import { useEffect } from 'react';
 import { useNav } from '@/context/NavContext';
-import { useTheme, useThemeUpdate } from '@/context/ThemeContext';
-import { useStickyhead, useStickyheadUpdate } from '@/context/StickyheadContext';
+import { useThemeUpdate } from '@/context/ThemeContext';
+import { useStickyheadUpdate } from '@/context/StickyheadContext';
 import { cn } from '@/lib/utils';
 import Hero from '@/components/Hero';
 import Ribbon from '@/components/Ribbon';
 import Disclaimer from '@/components/Disclaimer';
 import { HeroTitle, HeroSubText, PromoTitle, PromoSubText, LinkText, PreText, MoreText } from '@/components/Texts';
+import SliderStore from '@/components/SliderStore';
 
 export default function Store() {
   const showNav = useNav();
@@ -16,8 +17,8 @@ export default function Store() {
   const setStickyHead = useStickyheadUpdate();
 
   useEffect(() => {
-    setTheme('dark');
-    setStickyHead(true);
+    setTheme('light');
+    setStickyHead(false);
   }, []);
 
   return (
@@ -26,6 +27,8 @@ export default function Store() {
         Get $200–$640 in credit toward iPhone 14 <br className='block md:hidden' /> or iPhone 14 Pro when you trade in
         iPhone 11 or higher. <sup className='inline text-xxs'>3</sup>
       </Ribbon>
+
+      <SliderStore />
 
       <Hero
         src='/images/hero/hero_iphone14pro.jpeg'

@@ -17,8 +17,8 @@ export default function Home() {
   const setStickyHead = useStickyheadUpdate();
 
   useEffect(() => {
-    setTheme('light');
-    setStickyHead(false);
+    setTheme('dark');
+    setStickyHead(true);
   }, []);
 
   return (
@@ -27,15 +27,6 @@ export default function Home() {
         Get $200–$640 in credit toward iPhone 14 <br className='block md:hidden' /> or iPhone 14 Pro when you trade in
         iPhone 11 or higher. <sup className='inline text-xxs'>3</sup>
       </Ribbon>
-
-      <Hero src='/images/hero/hero_iphone14_yellow.jpeg' title='Some title here'>
-        <HeroTitle text='iPhone 14' />
-        <HeroSubText text='Wonderfull.' />
-        <div>
-          <LinkText text='Learn more' icon='out' />
-          <LinkText text='Buy' />
-        </div>
-      </Hero>
 
       <Hero
         src='/images/hero/hero_iphone14pro.jpeg'
@@ -48,6 +39,15 @@ export default function Home() {
         <HeroSubText>Pro. Beyond.</HeroSubText>
         <div>
           <LinkText text='Learn more' />
+          <LinkText text='Buy' />
+        </div>
+      </Hero>
+
+      <Hero src='/images/hero/hero_iphone14_yellow.jpeg' title='Some title here'>
+        <HeroTitle text='iPhone 14' />
+        <HeroSubText text='Wonderfull.' />
+        <div>
+          <LinkText text='Learn more' icon='out' />
           <LinkText text='Buy' />
         </div>
       </Hero>
