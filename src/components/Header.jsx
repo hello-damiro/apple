@@ -20,7 +20,7 @@ export default function Header({ paddedTop = true }) {
   const theme = useTheme();
   const stickyHead = useStickyhead();
 
-  const bgColor = theme === 'dark' ? 'bg-gray-bk' : 'bg-gray-lt';
+  const bgColor = theme === 'dark' ? 'bg-brand-black' : 'bg-brand-white';
   const bgColor80 = theme === 'dark' ? 'bg-brand-black/80' : 'bg-gray-lt/80';
   const bgColor30 = theme === 'dark' ? 'bg-gray-bk/30' : 'bg-gray-lt/30';
   const textColor = theme === 'dark' ? 'text-gray-lt' : 'text-gray-bk';

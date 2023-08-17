@@ -56,7 +56,7 @@ export default function Navigation({ theme = '' }) {
 
   const animation = {
     initial: { x: 20, opacity: 0 },
-    animate: { x: 0, opacity: 1, transition: { delay: 0.2, duration: 0.1 } },
+    animate: { x: 0, opacity: 1, transition: { delay: 0.1, duration: 0.1 } },
     exit: { x: -20, opacity: 0, transition: { duration: 0.1 } },
   };
 
