@@ -24,6 +24,8 @@ export default function Header({ paddedTop = true }) {
   const bgColor30 = theme === 'dark' ? 'bg-gray-bk/30' : 'bg-gray-lt/30';
   const textColor = theme === 'dark' ? 'text-gray-lt' : 'text-gray-bk';
 
+  const preText = ''; // 'Education Store Home | Exit';
+
   return (
     <header>
       <div
@@ -33,6 +35,14 @@ export default function Header({ paddedTop = true }) {
           'z-30 w-full backdrop-blur-md'
         )}
       >
+        {/* PRE HEADER */}
+        <div
+          className={cn('z-50 w-full bg-brand-gray/5 font-light', (preText === '' || breakpoint !== 'lg') && 'hidden')}
+        >
+          <div className='container max-w-5xl mx-auto px-6 py-3 text-xs'>{preText}</div>
+        </div>
+
+        {/* MAIN HEADER */}
         <div className='container max-w-5xl w-full h-12 px-6 flex flex-row gap-5 items-center justify-between'>
           <Button size='icon' variant='bare' href='/' className={cn(textColor, 'lg:z-30 -ml-1.5')} asChild>
             <Link href='/'>

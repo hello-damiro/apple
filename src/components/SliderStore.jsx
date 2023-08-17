@@ -24,9 +24,9 @@ export default function SliderStore() {
                     <Image
                       src={item.src}
                       alt={item.title}
-                      width={120}
-                      height={94}
-                      objectFit='cover'
+                      width={0}
+                      height={0}
+                      className='w-full h-auto'
                       blurDataURL={item.src}
                       placeholder='blur'
                       unoptimized
@@ -45,7 +45,7 @@ export default function SliderStore() {
 
       {/* BUTTON - LEFT */}
       <Button
-        className='absolute w-12 h-12 top-1/2 left-4 -translate-y-1/2 rounded-full p-2 bg-gray-bk shadow-none'
+        className='absolute w-12 h-12 top-1/2 left-4 -translate-y-1/2 rounded-full p-2 bg-gray-bk/50 shadow-none'
         asChild
       >
         <MdChevronLeft size={'24px'} color='white' />
