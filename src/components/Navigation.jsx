@@ -128,7 +128,7 @@ export default function Navigation({ theme = '' }) {
       </nav>
 
       {/* SUB MENU */}
-      <div className={cn('absolute top-0 left-0 w-full', bgColor, breakpoint !== 'lg' && showNav && 'h-[100vh]')}>
+      <div className={cn('absolute top-0 left-0 w-full', bgColor, breakpoint !== 'lg' && showNav && 'min-h-screen')}>
         <div className={cn('container max-w-5xl w-full')}>
           {data.map(
             (menuItem) =>
