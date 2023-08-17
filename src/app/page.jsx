@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 import { useNav } from '@/context/NavContext';
-import { useTheme, useThemeUpdate } from '@/context/ThemeContext';
+import { useThemeUpdate } from '@/context/ThemeContext';
 import { cn } from '@/lib/utils';
 import Hero from '@/components/Hero';
 import Disclaimer from '@/components/Disclaimer';
@@ -12,7 +12,6 @@ import { useStickyheadUpdate } from '@/context/StickyheadContext';
 import { HeroTitle, HeroSubText, PromoTitle, PromoSubText, LinkText, PreText, MoreText } from '@/components/Texts';
 
 export default function Home() {
-  const theme = useTheme();
   const showNav = useNav();
   const setTheme = useThemeUpdate();
   const setStickyHead = useStickyheadUpdate();
@@ -20,12 +19,11 @@ export default function Home() {
   useEffect(() => {
     setTheme('light');
     setStickyHead(false);
-    console.log('did mount on ipad', theme);
   }, []);
 
   return (
     <main className={cn(showNav && 'hidden lg:block', 'min-h-screen')}>
-      <Ribbon link='Shop iPhone' theme={theme}>
+      <Ribbon link='Shop iPhone'>
         Get $200–$640 in credit toward iPhone 14 <br className='block md:hidden' /> or iPhone 14 Pro when you trade in
         iPhone 11 or higher. <sup className='inline text-xxs'>3</sup>
       </Ribbon>

@@ -1,9 +1,12 @@
 import Link from 'next/link';
+import { useTheme } from '@/context/ThemeContext';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { MdChevronRight } from 'react-icons/md';
 
-export default function Ribbon({ children, link, theme, delay = 1 }) {
+export default function Ribbon({ children, link, delay = 1 }) {
+  const theme = useTheme();
+
   const textColor = theme === 'dark' ? 'text-brand-white' : 'text-brand-black';
   const bgColor = theme === 'dark' ? 'bg-gray-bk' : 'bg-brand-white';
   const finalColor = theme === 'dark' ? '#1c1c1d' : '#fff';

@@ -12,7 +12,6 @@ import { useBreakpoint } from '@/context/breakpointContext';
 import { useStickyhead } from '@/context/StickyheadContext';
 import { useTheme } from '@/context/ThemeContext';
 import { useNav } from '@/context/NavContext';
-import { useEffect } from 'react';
 
 export default function Header({ paddedTop = true }) {
   const showNav = useNav();
@@ -25,17 +24,12 @@ export default function Header({ paddedTop = true }) {
   const bgColor30 = theme === 'dark' ? 'bg-gray-bk/30' : 'bg-gray-lt/30';
   const textColor = theme === 'dark' ? 'text-gray-lt' : 'text-gray-bk';
 
-  useEffect(() => {
-    console.log('UPDATED', theme, stickyHead);
-  }, [theme, stickyHead]);
-
   return (
     <header>
       <div
         className={cn(
           bgColor80,
-          stickyHead ? 'fixed' : 'relative -mb-12',
-          showNav && breakpoint !== 'lg' ? 'relative' : 'fixed',
+          showNav && breakpoint !== 'lg' ? 'relative' : stickyHead ? 'fixed' : 'relative -mb-12',
           'z-30 w-full backdrop-blur-md'
         )}
       >

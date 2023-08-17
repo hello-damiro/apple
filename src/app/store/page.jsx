@@ -6,24 +6,27 @@ import { useTheme, useThemeUpdate } from '@/context/ThemeContext';
 import { useStickyhead, useStickyheadUpdate } from '@/context/StickyheadContext';
 import { cn } from '@/lib/utils';
 import Hero from '@/components/Hero';
+import Ribbon from '@/components/Ribbon';
 import Disclaimer from '@/components/Disclaimer';
 import { HeroTitle, HeroSubText, PromoTitle, PromoSubText, LinkText, PreText, MoreText } from '@/components/Texts';
 
-export default function Stor() {
+export default function Store() {
   const showNav = useNav();
   const setTheme = useThemeUpdate();
-  const theme = useTheme();
   const setStickyHead = useStickyheadUpdate();
-  const stickyHead = useStickyhead();
 
   useEffect(() => {
     setTheme('dark');
     setStickyHead(true);
-    console.log('did mount on store', theme, stickyHead);
   }, []);
 
   return (
     <main className={cn(showNav && 'hidden lg:block', 'min-h-screen')}>
+      <Ribbon link='Shop iPhone'>
+        Get $200–$640 in credit toward iPhone 14 <br className='block md:hidden' /> or iPhone 14 Pro when you trade in
+        iPhone 11 or higher. <sup className='inline text-xxs'>3</sup>
+      </Ribbon>
+
       <Hero
         src='/images/hero/hero_iphone14pro.jpeg'
         altsrc='/images/hero/hero_iphone14pro_mobile.jpeg'

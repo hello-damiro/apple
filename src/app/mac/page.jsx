@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 import { useNav } from '@/context/NavContext';
-import { useTheme, useThemeUpdate } from '@/context/ThemeContext';
+import { useThemeUpdate } from '@/context/ThemeContext';
 import { useStickyheadUpdate } from '@/context/StickyheadContext';
 import { cn } from '@/lib/utils';
 import Hero from '@/components/Hero';
@@ -12,13 +12,11 @@ import { HeroTitle, HeroSubText, PromoTitle, PromoSubText, LinkText, PreText, Mo
 export default function Mac() {
   const showNav = useNav();
   const setTheme = useThemeUpdate();
-  const theme = useTheme();
   const setStickyHead = useStickyheadUpdate();
 
   useEffect(() => {
     setTheme('light');
     setStickyHead(true);
-    console.log('did mount on mac', theme);
   }, []);
 
   return (

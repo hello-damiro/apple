@@ -9,16 +9,14 @@ import { HeroTitle, HeroSubText, PromoTitle, PromoSubText, LinkText, PreText, Mo
 import Disclaimer from '@/components/Disclaimer';
 import Promo, { Half } from '@/components/Promo';
 
-export default function Home() {
+export default function Ipad() {
   const showNav = useNav();
   const setTheme = useThemeUpdate();
-  const theme = useTheme();
   const setStickyHead = useStickyheadUpdate();
 
   useEffect(() => {
     setTheme('light');
     setStickyHead(false);
-    console.log('did mount on ipad', theme);
   }, []);
 
   return (
