@@ -132,7 +132,12 @@ export default function Navigation({ theme = '' }) {
         <div className={cn('container max-w-5xl w-full')}>
           {data.map(
             (menuItem) =>
-              isHidden(menuItem.id) && <NavigationSheet key={menuItem.id} id={menuItem.id} menu={data} theme={theme} />
+              menuItem.id === selectedMenu && (
+                // TODO: EXIt ANIMATION
+                <motion.div key={menuItem.id} variants={animation} initial='initial' animate='animate' exit='exit'>
+                  <NavigationSheet id={menuItem.id} menu={data} theme={theme} />
+                </motion.div>
+              )
           )}
         </div>
       </div>
