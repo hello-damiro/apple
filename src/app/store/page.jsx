@@ -60,7 +60,7 @@ export default function Store() {
         </div>
       </Container>
 
-      <SliderStore />
+      <SliderStore width={120} />
 
       <Container className='pt-14 pb-6'>
         <h3 className='text-2xl font-semibold leading-tight tracking-tight'>
