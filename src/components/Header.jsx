@@ -3,11 +3,11 @@
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import { Button } from './ui/button';
-import ButtonHamburger from './ButtonHamburger';
+import ButtonSearch from './ButtonSearch';
 import ButtonBag from './ButtonBag';
+import ButtonHamburger from './ButtonHamburger';
 import Navigation from './Navigation';
 import { BsApple } from 'react-icons/bs';
-import { HiOutlineMagnifyingGlass } from 'react-icons/hi2';
 import { useBreakpoint } from '@/context/breakpointContext';
 import { useStickyhead } from '@/context/StickyheadContext';
 import { useTheme } from '@/context/ThemeContext';
@@ -51,9 +51,7 @@ export default function Header({ paddedTop = true }) {
           </Button>
           <Navigation theme={theme} />
           <div className='flex flex-row space-x-4 items-center lg:z-30'>
-            <Button size='icon' variant='bare' className={cn(textColor)} asChild>
-              <HiOutlineMagnifyingGlass size={16} />
-            </Button>
+            <ButtonSearch theme={theme} />
             <ButtonBag count={3} theme={theme} />
             <ButtonHamburger theme={theme} />
           </div>

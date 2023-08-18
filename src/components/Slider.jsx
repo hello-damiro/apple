@@ -1,16 +1,11 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect, Fragment } from 'react';
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 import { cn } from '@/lib/utils';
 import { Button } from './ui/button';
-import { storeData } from '@/data/store';
 
-const store = storeData;
-
-export default function SliderStore({ width }) {
+export default function Slider({ scrollWidth, padding = 16, children, className }) {
   const ref = useRef(null);
-  const distance = width + 16;
+  const distance = scrollWidth + padding;
 
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
@@ -41,41 +36,18 @@ export default function SliderStore({ width }) {
   };
 
   return (
-    <div onMouseEnter={() => setIsVisible(true)} onMouseLeave={() => setIsVisible(false)} className='relative'>
+    <div
+      onMouseEnter={() => setIsVisible(true)}
+      onMouseLeave={() => setIsVisible(false)}
+      className={cn('relative', className)}
+    >
       {/* SLIDER */}
       <div
         ref={ref}
-        className='relative w-full overflow-x-auto snap-x snap-mandatory no-scrollbar bg-gray-lt scroll-smooth'
+        className='relative w-full overflow-x-auto snap-x snap-mandatory py-4 no-scrollbar bg-gray-lt scroll-smooth'
       >
-        <div className='container max-w-5xl mx-auto overflow-visible'>
-          <div className='flex flex-nowrap pl-6 py-6'>
-            {store.map((item) => {
-              return (
-                <Link
-                  key={item.id}
-                  href={item.href}
-                  className='flex flex-col gap-3 pr-4 mr-3 items-center snap-always snap-end'
-                >
-                  <div style={{ width: width }}>
-                    <Image
-                      src={item.src}
-                      alt={item.title}
-                      width={0}
-                      height={0}
-                      className='w-full h-auto'
-                      blurDataURL={item.src}
-                      placeholder='blur'
-                      unoptimized
-                      priority
-                    />
-                  </div>
-                  <Button variant='link' href={item.href} className='text-sm p-0'>
-                    {item.title}
-                  </Button>
-                </Link>
-              );
-            })}
-          </div>
+        <div className='max-w-5xl mx-auto overflow-visible'>
+          <div className='flex flex-nowrap pl-6 w-full gap-6 '>{children}</div>
         </div>
       </div>
 

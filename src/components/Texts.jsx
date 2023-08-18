@@ -85,3 +85,7 @@ export function PillText({ href = '/', text, children }) {
     </Button>
   );
 }
+
+export function H3({ children }) {
+  return <h3 className='text-2xl font-semibold leading-tight tracking-tight'>{children}</h3>;
+}
