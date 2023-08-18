@@ -14,6 +14,7 @@ export default function SliderStore({ width }) {
 
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,7 +41,7 @@ export default function SliderStore({ width }) {
   };
 
   return (
-    <div className='relative'>
+    <div onMouseEnter={() => setIsVisible(true)} onMouseLeave={() => setIsVisible(false)} className='relative'>
       {/* SLIDER */}
       <div
         ref={ref}
@@ -83,8 +84,9 @@ export default function SliderStore({ width }) {
         size='icon'
         onClick={() => scroll(distance * -1)}
         className={cn(
-          'absolute w-12 h-12 top-1/2 left-4 -translate-y-1/2 rounded-full p-2 bg-gray-bk/50 shadow-none transition-all duration-700',
-          !canScrollLeft && 'opacity-20 pointer-events-none'
+          'absolute w-12 h-12 top-1/2 left-4 -translate-y-1/2 rounded-full p-2 bg-gray-bk/80 shadow-none transition-all duration-300 delay-300',
+          isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-0',
+          !canScrollLeft && 'opacity-0 scale-50 pointer-events-none'
         )}
       >
         <MdChevronLeft size={'24px'} color='white' />
@@ -95,8 +97,9 @@ export default function SliderStore({ width }) {
         size='icon'
         onClick={() => scroll(distance)}
         className={cn(
-          'absolute w-12 h-12 top-1/2 right-4 -translate-y-1/2 rounded-full p-2 bg-gray-bk/50 shadow-none transition-all duration-700',
-          !canScrollRight && 'opacity-20 pointer-events-none'
+          'absolute w-12 h-12 top-1/2 right-4 -translate-y-1/2 rounded-full p-2 bg-gray-bk/50 shadow-none transition-all duration-300 delay-300',
+          isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-0',
+          !canScrollRight && 'opacity-0 scale-50 pointer-events-none'
         )}
       >
         <MdChevronRight size={'24px'} color='white' />
