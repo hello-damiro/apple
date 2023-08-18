@@ -84,9 +84,9 @@ export default function SliderStore({ width }) {
         size='icon'
         onClick={() => scroll(distance * -1)}
         className={cn(
-          'absolute w-12 h-12 top-1/2 left-4 -translate-y-1/2 rounded-full p-2 bg-gray-bk/80 shadow-none transition-all duration-300 delay-300',
-          isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-0',
-          !canScrollLeft && 'opacity-0 scale-50 pointer-events-none'
+          'absolute w-12 h-12 top-1/2 left-4 -translate-y-1/2 rounded-full p-2 bg-gray-bk/30 shadow-none transition-all duration-700 delay-300',
+          isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-50 pointer-events-none',
+          !canScrollLeft && 'opacity-0 scale-50 pointer-events-none delay-0'
         )}
       >
         <MdChevronLeft size={'24px'} color='white' />
@@ -97,9 +97,9 @@ export default function SliderStore({ width }) {
         size='icon'
         onClick={() => scroll(distance)}
         className={cn(
-          'absolute w-12 h-12 top-1/2 right-4 -translate-y-1/2 rounded-full p-2 bg-gray-bk/50 shadow-none transition-all duration-300 delay-300',
-          isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-0',
-          !canScrollRight && 'opacity-0 scale-50 pointer-events-none'
+          'absolute w-12 h-12 top-1/2 right-4 -translate-y-1/2 rounded-full p-2 bg-gray-bk/30 shadow-none transition-all duration-700 delay-300',
+          isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-50 pointer-events-none',
+          !canScrollRight && 'opacity-0 scale-50 pointer-events-none delay-0'
         )}
       >
         <MdChevronRight size={'24px'} color='white' />

@@ -61,7 +61,8 @@ export default function Header({ paddedTop = true }) {
       </div>
 
       {/* BLUR BACKGROUND */}
-      <div className={cn(bgColor30, !showNav && 'hidden', 'fixed z-10 top-0 min-h-screen w-full backdrop-blur-md')} />
+      <div className={cn(bgColor30, !showNav && 'hidden', 'fixed z-10 top-0 min-h-screen w-full backdrop-blur-lg')} />
+      {/* EXTRA PADDING TOP */}
       <div className={cn('relative h-12 w-full', bgColor)} />
     </header>
   );

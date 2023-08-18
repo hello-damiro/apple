@@ -20,7 +20,7 @@ export default function Store() {
 
   useEffect(() => {
     setTheme('light');
-    setStickyHead(true);
+    setStickyHead(false);
   }, []);
 
   return (

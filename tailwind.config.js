@@ -34,6 +34,7 @@ module.exports = {
       },
       transitionProperty: {
         height: 'height',
+        scale: 'scale',
       },
       keyframes: {
         'accordion-down': {
