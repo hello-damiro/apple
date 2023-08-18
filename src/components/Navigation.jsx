@@ -7,7 +7,6 @@ import { Button } from './ui/button';
 import { MdChevronLeft } from 'react-icons/md';
 import { menuData } from '../data/menu';
 import { cn } from '@/lib/utils';
-import NavigationSheet from './NavigationSheet';
 
 const data = menuData;
 
@@ -36,13 +35,6 @@ export default function Navigation({ theme = '' }) {
   };
 
   const handleMenuOut = () => {
-    if (setNav && breakpoint === 'lg') {
-      setNav(false);
-      setSelectedMenu(0);
-    }
-  };
-
-  const hideNav = () => {
     setNav(false);
     setSelectedMenu(0);
     setSubmenu(false);
@@ -60,12 +52,8 @@ export default function Navigation({ theme = '' }) {
     exit: { x: -20, opacity: 0, transition: { duration: 0.1 } },
   };
 
-  const isHidden = (id) => {
-    return id === selectedMenu ? true : false;
-  };
-
   return (
-    <div className='text-xs' onMouseLeave={hideNav}>
+    <div className='text-xs' onMouseLeave={handleMenuOut}>
       {/* BACK BUTTON */}
       <AnimatePresence mode='wait'>
         <motion.button
@@ -143,5 +131,36 @@ export default function Navigation({ theme = '' }) {
         </div>
       </div>
     </div>
+  );
+}
+
+function NavigationSheet({ id, menu, theme = '' }) {
+  const textColor = theme === 'dark' ? 'text-gray-md' : 'text-gray-xd';
+  const hoverColor = theme === 'dark' ? 'hover:text-background' : 'hover:text-foreground';
+
+  const selectedMenu = menu.find((menuItem) => menuItem.id === id);
+  if (!selectedMenu) return null;
+
+  return (
+    <nav className={cn('flex flex-col lg:flex-row gap-12 px-6 pt-20 pb-16', textColor)}>
+      {selectedMenu.content.map((section, index) => (
+        <div key={index}>
+          <h4 className='pb-4 font-light text-gray-rg'>{section.name}</h4>
+          <div className={cn('flex flex-col', index === 0 ? 'pr-16  space-y-2' : 'pr-0 space-y-2')}>
+            {section.collection.map((item, itemIndex) => (
+              <Link
+                key={itemIndex}
+                href={item.href}
+                className={cn(hoverColor, index === 0 ? 'font-medium text-2xl' : 'font-semibold text-xs')}
+              >
+                {item.link}
+              </Link>
+            ))}
+          </div>
+          {section.morelink1 !== undefined && <h4 className='font-semibold pt-6'>{section.morelink1}</h4>}
+          {section.morelink2 !== undefined && <h4 className='font-semibold pt-2'>{section.morelink2}</h4>}
+        </div>
+      ))}
+    </nav>
   );
 }

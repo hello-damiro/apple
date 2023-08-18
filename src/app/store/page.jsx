@@ -33,7 +33,7 @@ export default function Store() {
       </Ribbon>
 
       <Container className='flex lg:flex-row flex-col w-full lg:items-center py-16 gap-12 justify-between'>
-        <h1 className='text-4xl md:text-[2.8rem] font-semibold leading-tight max-w-3xl'>
+        <h1 className='text-4xl md:text-[2.8rem] font-semibold tracking-tight leading-tight max-w-3xl'>
           Store.{' '}
           <span className='text-gray-dk'>
             The best way to buy the <br className='hidden lg:block' />
@@ -65,19 +65,19 @@ export default function Store() {
       <SliderStore />
 
       <Container className='pt-14 pb-6'>
-        <h3 className='text-2xl font-semibold leading-tight'>
+        <h3 className='text-2xl font-semibold leading-tight tracking-tight'>
           The latest. <span className='text-gray-dk'>Take a look at what’s new, right now.</span>
         </h3>
       </Container>
 
       <Container className='pt-14 pb-6'>
-        <h3 className='text-2xl font-semibold leading-tight'>
+        <h3 className='text-2xl font-semibold leading-tight tracking-tight'>
           Help is here. <span className='text-gray-dk'>Whenever and however you need it.</span>
         </h3>
       </Container>
 
       <Container className='pt-14 pb-10 flex flex-col gap-5'>
-        <h3 className='text-2xl font-semibold leading-tight'>Quick Links</h3>
+        <h3 className='text-2xl font-semibold leading-tight tracking-tight'>Quick Links</h3>
         <div className='flex flex-row flex-wrap gap-3'>
           <Button
             href={'/'}
