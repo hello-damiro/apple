@@ -1,6 +1,6 @@
 import { BsApple } from 'react-icons/bs';
-import { Button } from './ui/button';
 import { MdChevronRight, MdOutlineNorthEast } from 'react-icons/md';
+import { Button } from './ui/button';
 
 export function HeroTitle({ children, text }) {
   return (
@@ -70,6 +70,18 @@ export function LinkText({ text, icon = '' }) {
           <MdOutlineNorthEast size={14} />
         </div>
       )}
+    </Button>
+  );
+}
+
+export function PillText({ href = '/', text, children }) {
+  return (
+    <Button
+      href={href}
+      className='bg-gray-md hover:bg-gray-dk text-gray-bk hover:text-gray-lt font-light rounded-full whitespace-nowrap shadow-none transition-all duration-300'
+    >
+      {text}
+      {children}
     </Button>
   );
 }

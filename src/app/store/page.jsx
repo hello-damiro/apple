@@ -1,19 +1,17 @@
 'use client';
 
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { useEffect, Fragment } from 'react';
+import { useEffect } from 'react';
+import { MdChevronRight } from 'react-icons/md';
+import { cn } from '@/lib/utils';
 import { useNav } from '@/context/NavContext';
 import { useThemeUpdate } from '@/context/ThemeContext';
 import { useStickyheadUpdate } from '@/context/StickyheadContext';
-import { cn } from '@/lib/utils';
-import Hero from '@/components/Hero';
+import { Button } from '@/components/ui/button';
+import { PillText } from '@/components/Texts';
 import Ribbon from '@/components/Ribbon';
 import Disclaimer from '@/components/Disclaimer';
-import { HeroTitle, HeroSubText, PromoTitle, PromoSubText, LinkText, PreText, MoreText } from '@/components/Texts';
 import SliderStore from '@/components/SliderStore';
 import Container from '@/components/Container';
-import { MdChevronRight } from 'react-icons/md';
 
 export default function Store() {
   const showNav = useNav();
@@ -36,11 +34,11 @@ export default function Store() {
         <h1 className='text-4xl md:text-[2.8rem] font-semibold tracking-tight leading-tight max-w-3xl'>
           Store.{' '}
           <span className='text-gray-dk'>
-            The best way to buy the <br className='hidden lg:block' />
-            products you love.
+            The best way to buy <br className='hidden sm:block' />
+            the products you love.
           </span>
         </h1>
-        <div className='pl-1 flex flex-col md:flex-row lg:flex-col gap-0 md:gap-16 lg:gap-0 items-left'>
+        <div className='pl-1 flex flex-col sm:flex-row lg:flex-col gap-0 sm:gap-16 lg:gap-0 items-left pt-2'>
           <div className='text-sm flex items-center gap-3'>
             <div className='w-9 h-9 rounded-full bg-gray-500'></div>
             <div className='pt-2'>
@@ -76,33 +74,43 @@ export default function Store() {
         </h3>
       </Container>
 
+      <Container className='pt-14 pb-6'>
+        <h3 className='text-2xl font-semibold leading-tight tracking-tight'>
+          The Apple Store difference. <span className='text-gray-dk'>Even more reasons to shop with us.</span>
+        </h3>
+      </Container>
+
+      <Container className='pt-14 pb-6'>
+        <h3 className='text-2xl font-semibold leading-tight tracking-tight'>
+          Accessories. <span className='text-gray-dk'>Essentials that pair perfectly with your favorite devices.</span>
+        </h3>
+      </Container>
+
+      <Container className='pt-14 pb-6'>
+        <h3 className='text-2xl font-semibold leading-tight tracking-tight'>
+          Loud and clear. <span className='text-gray-dk'>Unparalleled choices for rich, high-quality sound.</span>
+        </h3>
+      </Container>
+
+      <Container className='pt-14 pb-6'>
+        <h3 className='text-2xl font-semibold leading-tight tracking-tight'>
+          The Apple experience. <span className='text-gray-dk'>Do even more with Apple products and services.</span>
+        </h3>
+      </Container>
+
+      <Container className='pt-14 pb-6'>
+        <h3 className='text-2xl font-semibold leading-tight tracking-tight'>
+          Special stores. <span className='text-gray-dk'>Exclusive savings for businesses, school, and more.</span>
+        </h3>
+      </Container>
+
       <Container className='pt-14 pb-10 flex flex-col gap-5'>
         <h3 className='text-2xl font-semibold leading-tight tracking-tight'>Quick Links</h3>
         <div className='flex flex-row flex-wrap gap-3'>
-          <Button
-            href={'/'}
-            className='bg-gray-md hover:bg-gray-dk text-gray-bk hover:text-gray-lt font-light rounded-full whitespace-nowrap shadow-none'
-          >
-            Order Status
-          </Button>
-          <Button
-            href={'/'}
-            className='bg-gray-md hover:bg-gray-dk text-gray-bk hover:text-gray-lt font-light rounded-full whitespace-nowrap shadow-none'
-          >
-            Shopping Help
-          </Button>
-          <Button
-            href={'/'}
-            className='bg-gray-md hover:bg-gray-dk text-gray-bk hover:text-gray-lt font-light rounded-full whitespace-nowrap shadow-none'
-          >
-            Returns
-          </Button>
-          <Button
-            href={'/'}
-            className='bg-gray-md hover:bg-gray-dk text-gray-bk hover:text-gray-lt font-light rounded-full whitespace-nowrap shadow-none'
-          >
-            Your Saves
-          </Button>
+          <PillText text={'Order Status'} />
+          <PillText text={'Shopping Help'} />
+          <PillText text={'Returns'} />
+          <PillText text={'Your Saves'} />
         </div>
       </Container>
 

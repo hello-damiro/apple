@@ -89,7 +89,7 @@ export default function Navigation({ theme = '' }) {
                 <Link
                   href={menuItem.href}
                   onMouseOver={() => handleMenuOver(menuItem.id)}
-                  onClick={hideNav}
+                  onClick={handleMenuOut}
                   className={cn(
                     hoverColor,
                     textColor,
