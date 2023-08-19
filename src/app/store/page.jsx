@@ -56,26 +56,26 @@ export default function Store() {
         </H3>
       </Container>
 
-      <Container
-        className='pt-14 pb-6'
-        uncontained={
-          <Slider scrollWidth={320}>
-            <SliderDifference width={320} />
-          </Slider>
-        }
-      >
+      <Container className='pt-14 pb-2'>
         <H3>
           Help is here. <span className='text-gray-dk'>Whenever and however you need it.</span>
         </H3>
       </Container>
 
-      <Container className='pt-14 pb-6'>
+      <Container
+        className='pt-14 pb-2'
+        uncontained={
+          <Slider scrollWidth={320}>
+            <SliderDifference />
+          </Slider>
+        }
+      >
         <H3>
           The Apple Store difference. <span className='text-gray-dk'>Even more reasons to shop with us.</span>
         </H3>
       </Container>
 
-      <Container className='pt-14 pb-6'>
+      <Container className='pt-14 pb-2'>
         <H3>
           Accessories. <span className='text-gray-dk'>Essentials that pair perfectly with your favorite devices.</span>
         </H3>
