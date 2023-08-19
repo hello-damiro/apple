@@ -25,8 +25,8 @@ export default function Card({
     case 'plain':
       card = <div className='relative' style={{ width: mdWidth, height: height }}></div>;
       break;
-    case 'store':
-      card = <div style={{ backgroundColor: 'green', color: 'white' }}>Type 02</div>;
+    case 'empty':
+      card = <div className='relative' style={{ width: mdWidth, height: height }}></div>;
       break;
     default:
       card = (
@@ -54,7 +54,7 @@ export default function Card({
           <div
             className={cn(
               dark ? 'text-gray-lt' : 'text-gray-bk',
-              'absolute text-sm top-1/2 -translate-y-1/2 h-full w-full p-5 md:p-8 gap-2.5 flex flex-col',
+              'absolute text-sm top-1/2 -translate-y-1/2 h-full w-full p-6 md:p-8 gap-2.5 flex flex-col',
               justify,
               childClassName
             )}

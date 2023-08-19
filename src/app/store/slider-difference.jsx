@@ -9,7 +9,11 @@ const height = 260;
 export default function SliderDifference() {
   return (
     <>
-      <CardItem icon={'/images/storeDifference/be01d796-c471-48eb-afe0-ac4858304857.svg'} href='/'>
+      <CardItem
+        icon={'/images/storeDifference/be01d796-c471-48eb-afe0-ac4858304857.svg'}
+        imageClassName='-ml-1/2'
+        href='/'
+      >
         Enjoy <span className='text-green-500'>two-hour delivery</span> from an Apple Store,{' '}
         <span className='text-green-500'>free delivery</span>, or{' '}
         <span className='text-green-500'>
@@ -53,7 +57,7 @@ export default function SliderDifference() {
 
       <CardItem
         icon={'/images/storeDifference/c8aa8068-e0a0-44b5-bdbe-27f8692b28d1.svg'}
-        imageClassName='-ml-2'
+        imageClassName='-ml-1 scale-[110%]'
         href='/'
       >
         <span className='text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600'>Customize</span>{' '}
