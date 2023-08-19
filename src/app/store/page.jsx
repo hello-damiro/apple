@@ -14,6 +14,7 @@ import SliderStore from './slider-store.jsx';
 import SliderLatest from './slider-latest.jsx';
 import StoreDisclaimer from './store-disclaimer';
 import StoreHero from './store-hero';
+import SliderDifference from './slider-difference.jsx';
 
 export default function Store() {
   const showNav = useNav();
@@ -55,7 +56,14 @@ export default function Store() {
         </H3>
       </Container>
 
-      <Container className='pt-14 pb-6'>
+      <Container
+        className='pt-14 pb-6'
+        uncontained={
+          <Slider scrollWidth={320}>
+            <SliderDifference width={320} />
+          </Slider>
+        }
+      >
         <H3>
           Help is here. <span className='text-gray-dk'>Whenever and however you need it.</span>
         </H3>

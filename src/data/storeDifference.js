@@ -15,7 +15,7 @@ export const differenceData = [
     id: 3,
     src: '/images/storeDifference/9d8693c3-4816-4597-a844-17164ccc70e8.svg',
     href: '/',
-    title: 'Some title 3',
+    title: 'Some <span className="text-gray-rg">title 3</span>',
   },
   {
     id: 4,

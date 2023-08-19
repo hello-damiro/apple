@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { useBreakpoint } from '@/context/breakpointContext';
 import { cn } from '@/lib/utils';
 
-export default function Card({ children, width, src, alt, dark = false, position = 'start', href = '/' }) {
+export default function Card({ children, width, height, src, alt, dark = false, position = 'start', href = '/' }) {
   const breakpoint = useBreakpoint();
   const mdWidth = breakpoint !== 'sm' ? width : '320px';
   const justify = `justify-${position}`;
@@ -19,7 +19,7 @@ export default function Card({ children, width, src, alt, dark = false, position
               alt={alt}
               width={0}
               height={0}
-              className='w-full h-auto'
+              style={{ width: mdWidth, height: 'full' }}
               blurDataURL={src}
               placeholder='blur'
               unoptimized

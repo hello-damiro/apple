@@ -50,7 +50,7 @@ export default function Slider({ scrollWidth, padding = 16, children, className 
         className='relative w-full overflow-x-auto snap-x snap-mandatory py-4 no-scrollbar bg-gray-lt scroll-smooth'
       >
         <div className='max-w-5xl mx-auto overflow-visible'>
-          <div className='flex flex-nowrap pl-6 w-full'>{children}</div>
+          <div className='flex flex-nowrap pl-6 w-full items-baseline'>{children}</div>
         </div>
       </div>
 

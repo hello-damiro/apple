@@ -11,7 +11,7 @@ export default function StoreHero() {
           the products you love.
         </span>
       </h1>
-      <div className='pl-1 flex flex-col sm:flex-row lg:flex-col gap-16 lg:gap-0 items-left pt-2'>
+      <div className='pl-1 flex flex-col sm:flex-row lg:flex-col sm:gap-16 lg:gap-0 items-left pt-4 lg:pt-2'>
         <div className='text-sm flex items-center gap-3'>
           <div className='w-9 h-9 rounded-full bg-gray-500'></div>
           <div className='pt-2'>
