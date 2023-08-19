@@ -5,16 +5,12 @@ import { storeData } from '@/data/store';
 
 const store = storeData;
 
-export default function SliderDifference({ width }) {
+export default function SliderStore({ width }) {
   return (
     <>
       {store.map((item) => {
         return (
-          <Link
-            key={item.id}
-            href={item.href}
-            className='flex flex-col gap-3 items-center snap-always snap-end bg-red-300'
-          >
+          <Link key={item.id} href={item.href} className='flex flex-col gap-3 items-center snap-always snap-end'>
             <div style={{ width: width }}>
               <Image
                 src={item.src}

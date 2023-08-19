@@ -86,6 +86,11 @@ export function PillText({ href = '/', text, children }) {
   );
 }
 
-export function H3({ children }) {
-  return <h3 className='text-2xl font-semibold leading-tight tracking-tight'>{children}</h3>;
+export function H3({ children, text }) {
+  return (
+    <h3 className='text-2xl font-semibold leading-tight tracking-tight'>
+      {text}
+      {children}
+    </h3>
+  );
 }

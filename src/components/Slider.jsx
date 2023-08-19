@@ -23,11 +23,14 @@ export default function Slider({ scrollWidth, padding = 16, children, className 
     if (ref.current) {
       handleScroll(); // Initial calculation
       ref.current.addEventListener('scroll', handleScroll);
+
       return () => {
-        ref.current.removeEventListener('scroll', handleScroll);
+        if (ref.current) {
+          ref.current.removeEventListener('scroll', handleScroll);
+        }
       };
     }
-  }, [ref.current]);
+  }, [ref]);
 
   const scroll = (offset) => {
     if (ref.current) {
@@ -44,10 +47,13 @@ export default function Slider({ scrollWidth, padding = 16, children, className 
       {/* SLIDER */}
       <div
         ref={ref}
-        className='relative w-full overflow-x-auto snap-x snap-mandatory py-4 no-scrollbar bg-gray-lt scroll-smooth'
+        className='relative w-full overscroll-x-contain overflow-x-auto snap-x snap-mandatory py-4 no-scrollbar bg-gray-lt scroll-smooth'
       >
         <div className='max-w-5xl mx-auto overflow-visible'>
-          <div className='flex flex-nowrap pl-6 w-full gap-6 '>{children}</div>
+          <div className='flex flex-nowrap px-6 w-full gap-6'>
+            {children}
+            <div className='p-px' />
+          </div>
         </div>
       </div>
 
