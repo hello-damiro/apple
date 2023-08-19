@@ -1,18 +1,17 @@
-import { cn } from '@/lib/utils';
 import Card from '@/components/Card';
 import { H3 } from '@/components/Texts';
 
 export default function SliderHelp({ width }) {
   return (
     <>
-      <Card width={480} src='/images/storeHelp/store-card-50-specialist-help.jpeg' alt='alt' href='/'>
+      <Card width={480} src='/images/store-help/store-card-50-specialist-help.jpeg' alt='alt' href='/'>
         <span>APPLE SPECIALIST</span>
         <H3>Shop one on one with a Specialist. Online or in a store.</H3>
       </Card>
 
       <Card
         width={480}
-        src='/images/storeHelp/store-card-50-specialist-video.jpeg'
+        src='/images/store-help/store-card-50-specialist-video.jpeg'
         alt='alt'
         href='/'
         childClassName='w-2/3'
@@ -24,13 +23,13 @@ export default function SliderHelp({ width }) {
       </Card>
 
       <div className='relative space-y-4'>
-        <Card width={480} src='/images/storeHelp/store-card-25-apps.jpeg' alt='alt' href='/'>
+        <Card width={480} src='/images/store-help/store-card-25-apps.jpeg' alt='alt' href='/'>
           <H3>Get to know your new device with a free Personal Session.</H3>
         </Card>
 
         <Card
           width={480}
-          src='/images/storeHelp/store-card-25-genius.jpeg'
+          src='/images/store-help/store-card-25-genius.jpeg'
           alt='alt'
           href='/'
           position='center'

@@ -29,8 +29,8 @@ export default function Home() {
       </Ribbon>
 
       <Hero
-        src='/images/homeHero/hero_iphone14pro.jpeg'
-        altsrc='/images/homeHero/hero_iphone14pro_mobile.jpeg'
+        src='/images/home-hero/hero_iphone14pro.jpeg'
+        altsrc='/images/home-hero/hero_iphone14pro_mobile.jpeg'
         title='Some title here'
         theme='dark'
       >
@@ -43,7 +43,7 @@ export default function Home() {
         </div>
       </Hero>
 
-      <Hero src='/images/homeHero/hero_iphone14_yellow.jpeg' title='Some title here'>
+      <Hero src='/images/home-hero/hero_iphone14_yellow.jpeg' title='Some title here'>
         <HeroTitle text='iPhone 14' />
         <HeroSubText text='Wonderfull.' />
         <div>
@@ -53,7 +53,7 @@ export default function Home() {
       </Hero>
 
       <Promo>
-        <Half src='/images/homePromo/promo_bts2023_startframe.jpeg' title='bts 2023'>
+        <Half src='/images/home-promo/promo_bts2023_startframe.jpeg' title='bts 2023'>
           <PromoTitle>
             Save on Mac or iPad <br className='lg:hidden' />
             for college.
@@ -61,7 +61,7 @@ export default function Home() {
           <PromoSubText text='Plus get a gift card up to $150.' />
           <LinkText text='Shop now' />
         </Half>
-        <Half src='/images/homePromo/promo_watch.jpeg' title='Apple Watch' theme='dark'>
+        <Half src='/images/home-promo/promo_watch.jpeg' title='Apple Watch' theme='dark'>
           <PromoTitle text='WATCH' logo={true} />
           <PromoSubText text='A healthy leap ahead' />
           <div>
@@ -71,7 +71,7 @@ export default function Home() {
         </Half>
       </Promo>
       <Promo>
-        <Half src='/images/homePromo/promo_vision_pro.jpeg' title='Vision Pro' position='down'>
+        <Half src='/images/home-promo/promo_vision_pro.jpeg' title='Vision Pro' position='down'>
           <PromoTitle text='Vision Pro' logo={true} />
           <PromoSubText>
             Welcome to the era <br className='md:hidden' />
@@ -80,7 +80,7 @@ export default function Home() {
           <MoreText>Available early next year in the U.S.</MoreText>
           <LinkText text='Learn more' />
         </Half>
-        <Half src='/images/homePromo/promo_iphone_tradein_promo.jpeg' title='Apple Watch'>
+        <Half src='/images/home-promo/promo_iphone_tradein_promo.jpeg' title='Apple Watch'>
           <PromoTitle text='Trade In' logo={true} />
           <PromoSubText>
             Upgrade & save. <br className='md:hidden' />
@@ -90,7 +90,7 @@ export default function Home() {
         </Half>
       </Promo>
       <Promo>
-        <Half src='/images/homePromo/promo_apple_news_womens_world_cup.jpeg' title='News'>
+        <Half src='/images/home-promo/promo_apple_news_womens_world_cup.jpeg' title='News'>
           <PromoTitle text='News' logo={true} />
           <PromoSubText>
             64 matches. 32 teams. <br />
@@ -98,7 +98,7 @@ export default function Home() {
           </PromoSubText>
           <LinkText text="Follow the women's tournament" />
         </Half>
-        <Half src='/images/homePromo/promo_card.jpeg' title='Promo Card'>
+        <Half src='/images/home-promo/promo_card.jpeg' title='Promo Card'>
           <PromoTitle text='Card' logo={true} />
           <PromoSubText>
             Get up to 3% daily Cash Back <br />
