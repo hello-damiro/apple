@@ -87,10 +87,10 @@ export default function Store() {
         </H3>
       </Container>
 
-      {/* <Container
+      <Container
         className='pt-14 pb-2'
         uncontained={
-          <Slider scrollWidth={400}>
+          <Slider scrollWidth={400} position='items-start'>
             <SliderAccessories width={400} />
           </Slider>
         }
@@ -98,7 +98,7 @@ export default function Store() {
         <H3>
           Accessories. <span className='text-gray-dk'>Essentials that pair perfectly with your favorite devices.</span>
         </H3>
-      </Container> */}
+      </Container>
 
       {/* <Container
         className='pt-14 pb-2'

@@ -17,14 +17,29 @@ export default function SliderAccessories({ width }) {
 
       <Card
         type='product'
-        width={320}
-        imgWidth={230}
         src='/images/store-accessories/MPPJ3.jpeg'
         alt='Some title 5'
         href='/'
+        preText='Accessories'
+        preSubText={'Free engraving'}
+        colors={
+          <>
+            <Color hex='#ffff00' />
+            <Color hex='#ff00ff' />
+            <Color hex='#DDfE3f' />
+          </>
+        }
       >
-        <p className='text-sm md:text-base'>Discover fressh new colors for your favorite accessories</p>
+        <h4 className='text-sm md:text-base font-semibold'>
+          iPhone 14 Silicon Case with <br />
+          MagSafe - Canary Yellow
+        </h4>
+        <p className='text-sm'>US$59.00</p>
       </Card>
     </>
   );
 }
+
+const Color = ({ hex }) => {
+  return <div className='w-2.5 aspect-square rounded-full my-3 md:my-6' style={{ backgroundColor: hex }} />;
+};

@@ -14,7 +14,7 @@ export default function SliderHelp({ width }) {
         src='/images/store-help/store-card-50-specialist-video.jpeg'
         alt='alt'
         href='/'
-        childClassName='w-2/3'
+        textClassName='w-2/3'
         dark
       >
         <span className='text-red-400'>NEW</span>
@@ -32,8 +32,8 @@ export default function SliderHelp({ width }) {
           src='/images/store-help/store-card-25-genius.jpeg'
           alt='alt'
           href='/'
-          position='center'
-          childClassName='w-3/5'
+          justify='justify-center'
+          textClassName='w-3/5'
         >
           <H3>Get expert service and support at the Genius Bar.</H3>
         </Card>
