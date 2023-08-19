@@ -12,8 +12,10 @@ import Container from '@/components/Container';
 import Slider from '@/components/Slider';
 import SliderStore from './slider-store.jsx';
 import SliderLatest from './slider-latest.jsx';
+import SliderSpecial from './slider-special.jsx';
 import SliderDifference from './slider-difference.jsx';
 import SliderHelp from './slider-help.jsx';
+import SliderExperience from './slider-experience.jsx';
 import StoreHero from './store-hero';
 import StoreDisclaimer from './store-disclaimer';
 
@@ -61,7 +63,7 @@ export default function Store() {
         className='pt-14 pb-2'
         uncontained={
           <Slider scrollWidth={320} position='items-start'>
-            <SliderHelp />
+            <SliderHelp width={480} />
           </Slider>
         }
       >
@@ -95,13 +97,27 @@ export default function Store() {
         </H3>
       </Container>
 
-      <Container className='pt-14 pb-6'>
+      <Container
+        className='pt-14 pb-'
+        uncontained={
+          <Slider scrollWidth={320} position='items-start'>
+            <SliderExperience />
+          </Slider>
+        }
+      >
         <H3>
           The Apple experience. <span className='text-gray-dk'>Do even more with Apple products and services.</span>
         </H3>
       </Container>
 
-      <Container className='pt-14 pb-6'>
+      <Container
+        className='pt-14 pb-2'
+        uncontained={
+          <Slider scrollWidth={400}>
+            <SliderSpecial width={400} />
+          </Slider>
+        }
+      >
         <H3>
           Special stores. <span className='text-gray-dk'>Exclusive savings for businesses, school, and more.</span>
         </H3>

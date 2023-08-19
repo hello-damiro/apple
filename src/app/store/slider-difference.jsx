@@ -6,6 +6,25 @@ import { cn } from '@/lib/utils';
 const width = 320;
 const height = 260;
 
+const CardItem = ({ href, icon, alt, children, imageClassName }) => {
+  return (
+    <Card type='plain' width={width} height={height} href={href} childClassName='bg-brand-white'>
+      <Image
+        src={icon}
+        alt={alt}
+        width={0}
+        height={0}
+        className={cn('w-12 h-12 -p-2 mb-1 mb:mb-2', imageClassName)} // define icon size
+        blurDataURL={icon}
+        placeholder='blur'
+        unoptimized
+        priority
+      />
+      <H3>{children}</H3>
+    </Card>
+  );
+};
+
 export default function SliderDifference() {
   return (
     <>
@@ -64,24 +83,5 @@ export default function SliderDifference() {
         your Mac and create your own style of Apple Watch
       </CardItem>
     </>
-  );
-}
-
-function CardItem({ href, icon, alt, children, imageClassName }) {
-  return (
-    <Card type='plain' width={width} height={height} href={href} childClassName='bg-brand-white'>
-      <Image
-        src={icon}
-        alt={alt}
-        width={0}
-        height={0}
-        className={cn('w-12 h-12 -p-2 mb-1 mb:mb-2', imageClassName)}
-        blurDataURL={icon}
-        placeholder='blur'
-        unoptimized
-        priority
-      />
-      <H3>{children}</H3>
-    </Card>
   );
 }

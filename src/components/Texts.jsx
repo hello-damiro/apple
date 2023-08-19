@@ -1,6 +1,7 @@
 import { BsApple } from 'react-icons/bs';
 import { MdChevronRight, MdOutlineNorthEast } from 'react-icons/md';
 import { Button } from './ui/button';
+import { cn } from '@/lib/utils';
 
 export function HeroTitle({ children, text }) {
   return (
@@ -86,9 +87,9 @@ export function PillText({ href = '/', text, children }) {
   );
 }
 
-export function H3({ children, text }) {
+export function H3({ children, text, className }) {
   return (
-    <h3 className='text-xl md:text-2xl font-semibold leading-tight tracking-tight'>
+    <h3 className={cn('text-xl md:text-2xl font-semibold leading-tight tracking-tight', className)}>
       {text}
       {children}
     </h3>
