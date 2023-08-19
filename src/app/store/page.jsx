@@ -10,14 +10,16 @@ import Ribbon from '@/components/Ribbon';
 import Disclaimer from '@/components/Disclaimer';
 import Container from '@/components/Container';
 import Slider from '@/components/Slider';
+import StoreHero from './store-hero';
+import StoreDisclaimer from './store-disclaimer';
 import SliderStore from './slider-store.jsx';
 import SliderLatest from './slider-latest.jsx';
 import SliderSpecial from './slider-special.jsx';
 import SliderDifference from './slider-difference.jsx';
 import SliderHelp from './slider-help.jsx';
 import SliderExperience from './slider-experience.jsx';
-import StoreHero from './store-hero';
-import StoreDisclaimer from './store-disclaimer';
+import SliderAccessories from './slider-accessories.jsx';
+import SliderMusic from './slider-music.jsx';
 
 export default function Store() {
   const showNav = useNav();
@@ -75,8 +77,8 @@ export default function Store() {
       <Container
         className='pt-14 pb-2'
         uncontained={
-          <Slider scrollWidth={320}>
-            <SliderDifference />
+          <Slider scrollWidth={320} position='items-center'>
+            <SliderDifference width={320} height={260} />
           </Slider>
         }
       >
@@ -85,23 +87,37 @@ export default function Store() {
         </H3>
       </Container>
 
-      <Container className='pt-14 pb-2'>
+      {/* <Container
+        className='pt-14 pb-2'
+        uncontained={
+          <Slider scrollWidth={400}>
+            <SliderAccessories width={400} />
+          </Slider>
+        }
+      >
         <H3>
           Accessories. <span className='text-gray-dk'>Essentials that pair perfectly with your favorite devices.</span>
         </H3>
-      </Container>
+      </Container> */}
 
-      <Container className='pt-14 pb-6'>
+      {/* <Container
+        className='pt-14 pb-2'
+        uncontained={
+          <Slider scrollWidth={400}>
+            <SliderMusic width={400} />
+          </Slider>
+        }
+      >
         <H3>
           Loud and clear. <span className='text-gray-dk'>Unparalleled choices for rich, high-quality sound.</span>
         </H3>
-      </Container>
+      </Container> */}
 
       <Container
-        className='pt-14 pb-'
+        className='pt-14 pb-2'
         uncontained={
           <Slider scrollWidth={320} position='items-start'>
-            <SliderExperience />
+            <SliderExperience width={480} />
           </Slider>
         }
       >
