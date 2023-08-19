@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Card from '@/components/Card';
 import { H3 } from '@/components/Texts';
+import ColorOptions from '@/components/ColorOptions';
 
 export default function SliderAccessories({ width }) {
   return (
@@ -24,9 +25,9 @@ export default function SliderAccessories({ width }) {
         preSubText={'New'}
         colors={
           <>
-            <Color hex='#ffff00' />
-            <Color hex='#ff00ff' />
-            <Color hex='#DDfE3f' />
+            <ColorOptions hex='#ffff00' />
+            <ColorOptions hex='#ff00ff' />
+            <ColorOptions hex='#DDfE3f' />
           </>
         }
       >
@@ -46,9 +47,9 @@ export default function SliderAccessories({ width }) {
         preSubText={''}
         colors={
           <>
-            <Color hex='#ffff00' />
-            <Color hex='#ff00ff' />
-            <Color hex='#DDfE3f' />
+            <ColorOptions hex='#ffff00' />
+            <ColorOptions hex='#ff00ff' />
+            <ColorOptions hex='#DDfE3f' />
           </>
         }
       >
@@ -68,9 +69,9 @@ export default function SliderAccessories({ width }) {
         preSubText={'New'}
         colors={
           <>
-            <Color hex='#ffff00' />
-            <Color hex='#ff00ff' />
-            <Color hex='#DDfE3f' />
+            <ColorOptions hex='#ffff00' />
+            <ColorOptions hex='#ff00ff' />
+            <ColorOptions hex='#DDfE3f' />
           </>
         }
       >
@@ -90,9 +91,9 @@ export default function SliderAccessories({ width }) {
         preSubText={'New'}
         colors={
           <>
-            <Color hex='#ffff00' />
-            <Color hex='#ff00ff' />
-            <Color hex='#DDfE3f' />
+            <ColorOptions hex='#ffff00' />
+            <ColorOptions hex='#ff00ff' />
+            <ColorOptions hex='#DDfE3f' />
           </>
         }
       >
@@ -104,12 +105,3 @@ export default function SliderAccessories({ width }) {
     </>
   );
 }
-
-const Color = ({ hex }) => {
-  return (
-    <div
-      className='w-2.5 aspect-square rounded-full my-3 md:my-6 shadow-inner shadow-black/20'
-      style={{ backgroundColor: hex }}
-    />
-  );
-};

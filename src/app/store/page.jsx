@@ -100,10 +100,10 @@ export default function Store() {
         </H3>
       </Container>
 
-      {/* <Container
+      <Container
         className='pt-14 pb-2'
         uncontained={
-          <Slider scrollWidth={400}>
+          <Slider scrollWidth={400} position='items-start'>
             <SliderMusic width={400} />
           </Slider>
         }
@@ -111,7 +111,7 @@ export default function Store() {
         <H3>
           Loud and clear. <span className='text-gray-dk'>Unparalleled choices for rich, high-quality sound.</span>
         </H3>
-      </Container> */}
+      </Container>
 
       <Container
         className='pt-14 pb-2'
