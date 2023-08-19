@@ -17,11 +17,11 @@ export default function SliderAccessories({ width }) {
 
       <Card
         type='product'
-        src='/images/store-accessories/MPPJ3.jpeg'
+        src='/images/store-accessories/MQU73.jpeg'
         alt='Some title 5'
         href='/'
-        preText='Accessories'
-        preSubText={'Free engraving'}
+        preText=''
+        preSubText={'New'}
         colors={
           <>
             <Color hex='#ffff00' />
@@ -34,12 +34,82 @@ export default function SliderAccessories({ width }) {
           iPhone 14 Silicon Case with <br />
           MagSafe - Canary Yellow
         </h4>
+        <p className='text-sm'>US$49.00</p>
+      </Card>
+
+      <Card
+        type='product'
+        src='/images/store-accessories/MPPJ3.jpeg'
+        alt='Some title 5'
+        href='/'
+        preText=''
+        preSubText={''}
+        colors={
+          <>
+            <Color hex='#ffff00' />
+            <Color hex='#ff00ff' />
+            <Color hex='#DDfE3f' />
+          </>
+        }
+      >
+        <h4 className='text-sm md:text-base font-semibold'>
+          iPhone 14 Silicon Case with <br />
+          MagSafe - Ink
+        </h4>
         <p className='text-sm'>US$59.00</p>
+      </Card>
+
+      <Card
+        type='product'
+        src='/images/store-accessories/MQTR3.jpeg'
+        alt='Some title 5'
+        href='/'
+        preText=''
+        preSubText={'New'}
+        colors={
+          <>
+            <Color hex='#ffff00' />
+            <Color hex='#ff00ff' />
+            <Color hex='#DDfE3f' />
+          </>
+        }
+      >
+        <h4 className='text-sm md:text-base font-semibold'>
+          Bewats Studio Pro Wireless <br />
+          Headphones - Sandstone
+        </h4>
+        <p className='text-sm'>US$349.00</p>
+      </Card>
+
+      <Card
+        type='product'
+        src='/images/store-accessories/MQWD3ref.jpeg'
+        alt='Some title 5'
+        href='/'
+        preText=''
+        preSubText={'New'}
+        colors={
+          <>
+            <Color hex='#ffff00' />
+            <Color hex='#ff00ff' />
+            <Color hex='#DDfE3f' />
+          </>
+        }
+      >
+        <h4 className='text-sm md:text-base font-semibold'>
+          45mm Olive Solo Loop - Size 6 <br />
+        </h4>
+        <p className='text-sm'>US$49.00</p>
       </Card>
     </>
   );
 }
 
 const Color = ({ hex }) => {
-  return <div className='w-2.5 aspect-square rounded-full my-3 md:my-6' style={{ backgroundColor: hex }} />;
+  return (
+    <div
+      className='w-2.5 aspect-square rounded-full my-3 md:my-6 shadow-inner shadow-black/20'
+      style={{ backgroundColor: hex }}
+    />
+  );
 };

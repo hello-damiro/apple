@@ -75,11 +75,11 @@ const CardProduct = ({
   return (
     <div className='relative p-6 md:p-8 flex flex-col items-stretch  w-[320px] h-[400px] md:h-[500px]'>
       <div className=''>
-        <div className='uppercase text-xs h-[30px]'>{preText}</div>
+        <div className='uppercase text-xs text-gray-dk h-[20px] md:h-[30px]'>{preText}</div>
         <img src={src} alt={alt} className={cn('w-[200px] md:w-[230px] aspect-square mx-auto', imgClassName)} />
       </div>
       <div className='flex items-center justify-center gap-2 '>{colors}</div>
-      <div className='text-xs text-red-400 h-[80px]'>{preSubText}</div>
+      <div className='text-xs text-red-400 h-[100px]'>{preSubText}</div>
       <div
         className={cn(
           'w-full h-full text-sm flex flex-col items-start justify-between',
