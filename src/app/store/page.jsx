@@ -33,7 +33,7 @@ export default function Store() {
       </Ribbon>
 
       <Container
-        className='flex lg:flex-row flex-col w-full lg:items-center gap-12 py-20 justify-between'
+        className='flex lg:flex-row flex-col w-full lg:items-center gap-2 py-20 justify-between'
         children={<StoreHero />}
         uncontained={
           <Slider scrollWidth={120} className={'pb-2'}>

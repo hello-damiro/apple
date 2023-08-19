@@ -10,24 +10,29 @@ export default function SliderStore({ width }) {
     <>
       {store.map((item) => {
         return (
-          <Link key={item.id} href={item.href} className='flex flex-col gap-3 items-center snap-always snap-end'>
-            <div style={{ width: width }}>
-              <Image
-                src={item.src}
-                alt={item.title}
-                width={0}
-                height={0}
-                className='w-full h-auto'
-                blurDataURL={item.src}
-                placeholder='blur'
-                unoptimized
-                priority
-              />
-            </div>
-            <Button variant='link' href={item.href} className='text-sm p-0'>
-              {item.title}
-            </Button>
-          </Link>
+          <div key={item.id} className='scale-100 hover:scale-[1.02] transition-all duration-700 pr-6'>
+            <Link
+              href={item.href}
+              className='flex flex-col gap-3 snap-always snap-start md:snap-center scroll-mx-6 scroll-px-6'
+            >
+              <div style={{ width: width }}>
+                <Image
+                  src={item.src}
+                  alt={item.title}
+                  width={0}
+                  height={0}
+                  className='w-full h-auto'
+                  blurDataURL={item.src}
+                  placeholder='blur'
+                  unoptimized
+                  priority
+                />
+              </div>
+              <Button variant='link' href={item.href} className='text-sm p-0'>
+                {item.title}
+              </Button>
+            </Link>
+          </div>
         );
       })}
     </>

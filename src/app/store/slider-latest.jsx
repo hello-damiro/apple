@@ -1,9 +1,6 @@
-import Link from 'next/link';
-import { Fragment } from 'react';
-import Image from 'next/image';
-import { cn } from '@/lib/utils';
-import { latestData } from '@/data/storeLatest';
+import Card from '@/components/Card';
 import { H3 } from '@/components/Texts';
+import { latestData } from '@/data/storeLatest';
 
 const data = latestData;
 
@@ -77,41 +74,5 @@ export default function SliderLatest({ width }) {
         </p>
       </Card>
     </>
-  );
-}
-
-function Card({ children, width, src, alt, dark, href = '/' }) {
-  const midwidth = width && `md:w-[${width}px]`;
-  return (
-    <div className='scale-100 hover:scale-[1.02] transition-all duration-700'>
-      <Link href={href} className='flex snap-always snap-center '>
-        <div className='relative overflow-hidden w-full rounded-2xl shadow-gray-dk shadow-sm hover:shadow-lg transition-all duration-700'>
-          {/* BACKGROUND IMAGE */}
-          <div className={cn('relative w-[360px]', midwidth)}>
-            <Image
-              src={src}
-              alt={alt}
-              width={0}
-              height={0}
-              className='w-full h-auto'
-              blurDataURL={src}
-              placeholder='blur'
-              unoptimized
-              priority
-            />
-          </div>
-
-          {/* AD COPY */}
-          <div
-            className={cn(
-              'absolute text-sm top-1/2 -translate-y-1/2 h-full w-full p-8 space-y-3',
-              dark ? 'text-gray-lt' : 'text-gray-bk'
-            )}
-          >
-            {children}
-          </div>
-        </div>
-      </Link>
-    </div>
   );
 }

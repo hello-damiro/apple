@@ -47,13 +47,10 @@ export default function Slider({ scrollWidth, padding = 16, children, className 
       {/* SLIDER */}
       <div
         ref={ref}
-        className='relative w-full overscroll-x-contain overflow-x-auto snap-x snap-mandatory py-4 no-scrollbar bg-gray-lt scroll-smooth'
+        className='relative w-full overflow-x-auto snap-x snap-mandatory py-4 no-scrollbar bg-gray-lt scroll-smooth'
       >
         <div className='max-w-5xl mx-auto overflow-visible'>
-          <div className='flex flex-nowrap px-6 w-full gap-6'>
-            {children}
-            <div className='p-px' />
-          </div>
+          <div className='flex flex-nowrap pl-6 w-full'>{children}</div>
         </div>
       </div>
 

@@ -14,7 +14,7 @@ export const latestData = [
   {
     id: 3,
     src: '/images/storeLatest/store-card-40-iphone-14-pro.jpeg',
-    title: 'Some title 3',
+    title: '<H3>Impressively big. <br />Impossibly thin.</H3>',
     href: '/',
   },
   {
