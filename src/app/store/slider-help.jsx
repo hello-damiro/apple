@@ -14,7 +14,7 @@ export default function SliderHelp({ width }) {
         src='/images/store-help/store-card-50-specialist-video.jpeg'
         alt='alt'
         href='/'
-        textClassName='w-2/3'
+        textClassName='scale-90 md:scale-100 origin-top-left w-3/4 md:w-2/3'
         dark
       >
         <span className='text-red-400'>NEW</span>

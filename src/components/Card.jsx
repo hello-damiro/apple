@@ -1,57 +1,35 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import { useBreakpoint } from '@/context/breakpointContext';
 import { cn } from '@/lib/utils';
+import Picture from './Picture';
 
-const img = ({ src, alt, style, imgClassName }) => {
-  return (
-    <Image
-      src={src}
-      alt={alt}
-      width={0}
-      height={0}
-      style={style}
-      blurDataURL={src}
-      placeholder='blur'
-      unoptimized
-      priority
-      className={cn(imgClassName)}
-    />
-  );
-};
-
-const CardDefault = ({ children, width, textClassName, imgClassName, src, alt, justify, dark }) => {
+const CardDefault = ({ children, width, textClassName, picClassName, src, alt, justify, dark }) => {
   const breakpoint = useBreakpoint();
-  const mdWidth = breakpoint !== 'sm' ? width : '320px';
-  const imgStyle = { width: 'full', height: 'auto' };
+  const breakpointWidth = breakpoint !== 'sm' ? width : '320px';
 
   return (
     <>
-      <div className='relative' style={{ width: mdWidth }}>
-        <img src={src} alt={alt} style={imgStyle} className={cn(imgClassName)} />
+      <div className='relative' style={{ width: breakpointWidth }}>
+        <Picture src={src} alt={alt} picClassName={cn('w-auto h-full', picClassName)} />
       </div>
       <div
-        style={{ width: mdWidth }}
+        style={{ width: breakpointWidth }}
         className={cn(
-          'absolute top-1/2 -translate-y-1/2',
-          'h-full p-6 md:p-8 gap-2.5 flex flex-col text-sm',
           dark ? 'text-gray-lt' : 'text-gray-bk',
-          justify,
-          textClassName
+          'absolute top-1/2 -translate-y-1/2 h-full p-6 md:p-8 ',
+          justify
         )}
       >
-        {children}
+        <div className={cn('gap-2.5 flex flex-col text-sm', textClassName)}>{children}</div>
       </div>
     </>
   );
 };
 
-const CardIcon = ({ children, imgHeight, textClassName, imgClassName, src, alt, justify, dark }) => {
-  const imgStyle = { height: imgHeight };
-
+const CardIcon = ({ children, imgHeight, textClassName, picClassName, src, alt, justify, dark }) => {
   return (
-    <div className='relative p-6 md:p-8 flex flex-col items-start gap-3 w-[320px] h-[240px]'>
-      <img src={src} alt={alt} style={{ height: imgHeight }} className={imgClassName} />
+    <div className='relative p-6 md:p-8 flex flex-col items-start gap-3 w-[320px] h-[190px] md:h-[240px]'>
+      <Picture src={src} alt={alt} style={{ height: imgHeight }} picClassName={cn('w-auto', picClassName)} />
       <div className={cn('w-full h-full text-sm', dark ? 'text-gray-lt' : 'text-gray-bk', justify, textClassName)}>
         {children}
       </div>
@@ -61,9 +39,8 @@ const CardIcon = ({ children, imgHeight, textClassName, imgClassName, src, alt, 
 
 const CardProduct = ({
   children,
-  imgHeight,
   textClassName,
-  imgClassName,
+  picClassName,
   src,
   alt,
   justify,
@@ -74,9 +51,9 @@ const CardProduct = ({
 }) => {
   return (
     <div className='relative p-6 md:p-8 flex flex-col items-stretch  w-[320px] h-[400px] md:h-[500px]'>
-      <div className=''>
+      <div>
         <div className='uppercase text-xs text-gray-dk h-[20px] md:h-[30px]'>{preText}</div>
-        <img src={src} alt={alt} className={cn('w-[200px] md:w-[230px] aspect-square mx-auto', imgClassName)} />
+        <Picture src={src} alt={alt} picClassName={cn('w-[200px] md:w-[230px] aspect-square mx-auto', picClassName)} />
       </div>
       <div className='flex items-center justify-center gap-2 '>{colors}</div>
       <div className='text-xs text-red-400 h-[100px]'>{preSubText}</div>
@@ -109,7 +86,7 @@ export default function Card({
   preSubText,
   colors,
   textClassName,
-  imgClassName,
+  picClassName,
 }) {
   let card;
 
@@ -122,7 +99,7 @@ export default function Card({
           height={height}
           imgHeight={imgHeight}
           textClassName={textClassName}
-          imgClassName={imgClassName}
+          picClassName={picClassName}
           src={src}
           alt={alt}
           justify={justify}
@@ -138,7 +115,7 @@ export default function Card({
           height={height}
           imgHeight={imgHeight}
           textClassName={textClassName}
-          imgClassName={imgClassName}
+          picClassName={picClassName}
           src={src}
           alt={alt}
           justify={justify}
@@ -154,7 +131,7 @@ export default function Card({
         <CardDefault
           width={width}
           textClassName={textClassName}
-          imgClassName={imgClassName}
+          picClassName={picClassName}
           src={src}
           alt={alt}
           justify={justify}

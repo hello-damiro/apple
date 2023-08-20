@@ -8,7 +8,7 @@ export default function SliderDifference(width, height) {
     <>
       <Card
         type='icon'
-        imgClassName='ml-0.5'
+        picClassName='ml-0.5'
         alt='some icon'
         imgHeight={42}
         src={'/images/store-difference/be01d796-c471-48eb-afe0-ac4858304857.svg'}
@@ -38,7 +38,7 @@ export default function SliderDifference(width, height) {
 
       <Card
         type='icon'
-        imgClassName='ml-0.5'
+        picClassName='ml-0.5'
         alt='some icon'
         imgHeight={42}
         src={'/images/store-difference/be288957-bb13-4133-9c3a-aab60af88ac8.svg'}
@@ -51,7 +51,7 @@ export default function SliderDifference(width, height) {
 
       <Card
         type='icon'
-        imgClassName='-ml-0.5 scale-75'
+        picClassName='-ml-0.5 scale-75'
         alt='some icon'
         imgHeight={42}
         src={'/images/store-difference/07e9d50e-f7bf-47cf-9577-b607b28f7ac8.svg'}
@@ -65,7 +65,7 @@ export default function SliderDifference(width, height) {
 
       <Card
         type='icon'
-        imgClassName='-ml-0.5 scale-110'
+        picClassName='-ml-0.5 scale-110'
         alt='some icon'
         imgHeight={36}
         src={'/images/store-difference/82262e95-8dec-460e-a783-de3e5ee81556.svg'}
@@ -78,7 +78,7 @@ export default function SliderDifference(width, height) {
 
       <Card
         type='icon'
-        imgClassName='-ml-0.5 scale-125'
+        picClassName='-ml-0.5 scale-125'
         alt='some icon'
         imgHeight={42}
         src={'/images/store-difference/c8aa8068-e0a0-44b5-bdbe-27f8692b28d1.svg'}
