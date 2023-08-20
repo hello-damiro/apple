@@ -30,7 +30,7 @@ export default function CounterTicker() {
 }
 
 function Counter({ value }) {
-  let animatedValue = useSpring(value, { stiffness: 100, damping: 100 });
+  let animatedValue = useSpring(value);
   useEffect(() => {
     animatedValue.set(value);
   }, [animatedValue, value]);

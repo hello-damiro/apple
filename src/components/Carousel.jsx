@@ -55,8 +55,9 @@ export default function Carousel({ className, buttonScroll = 0, padding = 16, po
       >
         <div className='max-w-5xl mx-auto overflow-visible flex h-auto'>
           <div className={cn('flex flex-nowrap pl-6 w-full h-auto', position)}>
-            {movies.map((movie) => (
+            {movies.map((movie, i) => (
               <Card
+                key={i}
                 width={imgWidth}
                 src={movie.src}
                 alt={movie.title}
