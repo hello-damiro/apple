@@ -10,7 +10,7 @@ export default function Carousel() {
   return (
     <Slider>
       {movies.map((movie) => (
-        <Card width={400} src={movie.src} alt={movie.title} href='/'>
+        <Card width={400} src={movie.src} alt={movie.title} href='/' dark textClassName={'justify-start items-end'}>
           {movie.title}
         </Card>
       ))}

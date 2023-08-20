@@ -32,8 +32,7 @@ export default function SliderHelp({ width }) {
           src='/images/store-help/store-card-25-genius.jpeg'
           alt='alt'
           href='/'
-          justify='justify-center'
-          textClassName='w-3/5'
+          textClassName='w-3/5 justify-center'
         >
           <H3>Get expert service and support at the Genius Bar.</H3>
         </Card>
