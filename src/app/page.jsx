@@ -11,6 +11,7 @@ import Promo, { Half } from '@/components/Promo';
 import { useStickyheadUpdate } from '@/context/StickyheadContext';
 import { HeroTitle, HeroSubText, PromoTitle, PromoSubText, LinkText, PreText, MoreText } from '@/components/Texts';
 import Carousel from '@/components/Carousel';
+import CounterTicker from '@/components/CounterTicker';
 
 export default function Home() {
   const showNav = useNav();
@@ -29,7 +30,8 @@ export default function Home() {
         iPhone 11 or higher. <sup className='inline text-xxs'>3</sup>
       </Ribbon>
 
-      <Carousel />
+      <CounterTicker />
+      <Carousel buttonScroll={400} />
 
       <Hero
         src='/images/home-hero/hero_iphone14pro.jpeg'
