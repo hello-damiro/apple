@@ -10,6 +10,7 @@ import Ribbon from '@/components/Ribbon';
 import Promo, { Half } from '@/components/Promo';
 import { useStickyheadUpdate } from '@/context/StickyheadContext';
 import { HeroTitle, HeroSubText, PromoTitle, PromoSubText, LinkText, PreText, MoreText } from '@/components/Texts';
+import Carousel from '@/components/Carousel';
 
 export default function Home() {
   const showNav = useNav();
@@ -27,6 +28,8 @@ export default function Home() {
         Get $200–$640 in credit toward iPhone 14 <br className='block md:hidden' /> or iPhone 14 Pro when you trade in
         iPhone 11 or higher. <sup className='inline text-xxs'>3</sup>
       </Ribbon>
+
+      <Carousel />
 
       <Hero
         src='/images/home-hero/hero_iphone14pro.jpeg'

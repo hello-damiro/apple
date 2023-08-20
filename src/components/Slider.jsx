@@ -3,9 +3,9 @@ import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 import { cn } from '@/lib/utils';
 import { Button } from './ui/button';
 
-export default function Slider({ scrollWidth, padding = 16, children, position = 'items-baseline', className }) {
+export default function Slider({ children, className, buttonScroll = 0, padding = 16, position = 'items-baseline' }) {
   const ref = useRef(null);
-  const distance = scrollWidth + padding;
+  const distance = buttonScroll + padding;
 
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
@@ -61,7 +61,8 @@ export default function Slider({ scrollWidth, padding = 16, children, position =
         className={cn(
           'absolute w-12 h-12 top-1/2 left-4 -translate-y-1/2 rounded-full p-2 bg-gray-bk/30 shadow-none transition-all duration-700 delay-300',
           isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-50 pointer-events-none',
-          !canScrollLeft && 'opacity-0 scale-50 pointer-events-none delay-0'
+          !canScrollLeft && 'opacity-0 scale-50 pointer-events-none delay-0',
+          buttonScroll === 0 && 'hidden'
         )}
       >
         <MdChevronLeft size={'24px'} color='white' />
@@ -74,7 +75,8 @@ export default function Slider({ scrollWidth, padding = 16, children, position =
         className={cn(
           'absolute w-12 h-12 top-1/2 right-4 -translate-y-1/2 rounded-full p-2 bg-gray-bk/30 shadow-none transition-all duration-700 delay-300',
           isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-50 pointer-events-none',
-          !canScrollRight && 'opacity-0 scale-50 pointer-events-none delay-0'
+          !canScrollRight && 'opacity-0 scale-50 pointer-events-none delay-0',
+          buttonScroll === 0 && 'hidden'
         )}
       >
         <MdChevronRight size={'24px'} color='white' />

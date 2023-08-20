@@ -42,7 +42,7 @@ export default function Store() {
         className='flex lg:flex-row flex-col w-full lg:items-center gap-2 py-20 justify-between'
         children={<StoreHero />}
         uncontained={
-          <Slider scrollWidth={120} className={'pb-2'}>
+          <Slider buttonScroll={120} className={'pb-2'}>
             <SliderStore width={120} />
           </Slider>
         }
@@ -51,7 +51,7 @@ export default function Store() {
       <Container
         className='pt-14 pb-2'
         uncontained={
-          <Slider scrollWidth={400}>
+          <Slider buttonScroll={400}>
             <SliderLatest width={400} />
           </Slider>
         }
@@ -64,7 +64,7 @@ export default function Store() {
       <Container
         className='pt-14 pb-2'
         uncontained={
-          <Slider scrollWidth={320} position='items-start'>
+          <Slider buttonScroll={320} position='items-start'>
             <SliderHelp width={480} />
           </Slider>
         }
@@ -77,7 +77,7 @@ export default function Store() {
       <Container
         className='pt-14 pb-2'
         uncontained={
-          <Slider scrollWidth={320} position='items-center'>
+          <Slider buttonScroll={320} position='items-center'>
             <SliderDifference width={320} height={260} />
           </Slider>
         }
@@ -90,7 +90,7 @@ export default function Store() {
       <Container
         className='pt-14 pb-2'
         uncontained={
-          <Slider scrollWidth={400} position='items-start'>
+          <Slider buttonScroll={400} position='items-start'>
             <SliderAccessories width={400} />
           </Slider>
         }
@@ -103,7 +103,7 @@ export default function Store() {
       <Container
         className='pt-14 pb-2'
         uncontained={
-          <Slider scrollWidth={400} position='items-start'>
+          <Slider buttonScroll={400} position='items-start'>
             <SliderMusic width={400} />
           </Slider>
         }
@@ -116,7 +116,7 @@ export default function Store() {
       <Container
         className='pt-14 pb-2'
         uncontained={
-          <Slider scrollWidth={320} position='items-start'>
+          <Slider buttonScroll={320} position='items-start'>
             <SliderExperience width={480} />
           </Slider>
         }
@@ -129,7 +129,7 @@ export default function Store() {
       <Container
         className='pt-14 pb-2'
         uncontained={
-          <Slider scrollWidth={400}>
+          <Slider buttonScroll={400}>
             <SliderSpecial width={400} />
           </Slider>
         }
