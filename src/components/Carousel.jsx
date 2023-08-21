@@ -1,104 +1,88 @@
-import { useRef, useState, useEffect } from 'react';
+import { useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import useMeasure from 'react-use-measure';
+import usePrevious from '@/lib/usePrevious';
+import AdaptiveImage from '@/lib/adaptiveImage';
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
-import { cn } from '@/lib/utils';
-import { Button } from './ui/button';
 import { movieData } from '@/data/movies';
-import Card from './Card';
 
 const movies = movieData;
 
-export default function Carousel({ className, buttonScroll = 0, padding = 16, position = 'items-baseline' }) {
-  const imgWidth = 400;
+export default function Carousel() {
+  const width = 400;
+  let [ref] = useMeasure();
+  let [count, setCount] = useState(0);
+  let prev = usePrevious(count);
+  let direction = count > prev ? 1 : -1;
 
-  const ref = useRef(null);
-  const distance = buttonScroll + padding;
-
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(true);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (ref.current) {
-        // Determine if there amount of content to be scrolled
-        setCanScrollLeft(ref.current.scrollLeft > 0);
-        setCanScrollRight(ref.current.scrollLeft + ref.current.clientWidth < ref.current.scrollWidth - 1);
-      }
-    };
-
-    if (ref.current) {
-      handleScroll(); // Initial calculation
-      ref.current.addEventListener('scroll', handleScroll);
-
-      return () => {
-        if (ref.current) ref.current.removeEventListener('scroll', handleScroll);
-      };
-    }
-  }, [ref]);
-
-  const scroll = (offset) => {
-    if (ref.current) {
-      ref.current.scrollLeft += offset;
-    }
+  let variants = {
+    enter: ({ direction, width }) => ({ x: direction * width }),
+    center: { x: 0, transition: { type: 'spring', stiffness: 30, duration: 0.4 } },
+    exit: ({ direction, width }) => ({
+      x: direction * -width,
+      transition: { type: 'spring', stiffness: 30, duration: 0.4 },
+    }),
   };
 
+  const handleLeftButtonClick = () => {
+    setCount(count - 1 < 0 ? movies.length - 1 : count - 1);
+  };
+
+  const handleRightButtonClick = () => {
+    setCount(count + 1 >= movies.length ? 0 : count + 1);
+  };
+
+  const getMoviesInRange = () => {
+    const range = 2;
+    const totalMovies = movies.length;
+    const startIndex = (count - range + totalMovies) % totalMovies;
+    const endIndex = (count + range + totalMovies) % totalMovies;
+
+    const idsInRange = [];
+
+    if (endIndex >= startIndex) {
+      for (let i = startIndex; i <= endIndex; i++) idsInRange.push(i);
+    } else {
+      for (let i = startIndex; i < totalMovies; i++) idsInRange.push(i);
+      for (let i = 0; i <= endIndex; i++) idsInRange.push(i);
+    }
+
+    const moviesInRange = idsInRange.map((id) => movies[id]);
+
+    return moviesInRange;
+  };
+
+  const moviesInRange = getMoviesInRange();
+
   return (
-    <div
-      onMouseEnter={() => setIsVisible(true)}
-      onMouseLeave={() => setIsVisible(false)}
-      className={cn('relative', className)}
-    >
-      {/* SLIDER */}
-      <div
-        ref={ref}
-        className='relative w-full h-full overflow-x-auto snap-x snap-mandatory py-4 no-scrollbar bg-gray-lt scroll-smooth'
-      >
-        <div className='max-w-5xl mx-auto overflow-visible flex h-auto'>
-          <div className={cn('flex flex-nowrap pl-6 w-full h-auto', position)}>
-            {movies.map((movie, i) => (
-              <Card
-                key={i}
-                width={imgWidth}
-                src={movie.src}
-                alt={movie.title}
-                href='/'
-                dark
-                textClassName={'justify-start items-end'}
+    <div className='relative w-full min-h-10 overflow-hidden'>
+      <div className='relative w-full h-auto'>
+        <div ref={ref} className='relative flex w-full h-full '>
+          <div className='flex flex-row gap-6 w-full h-full items-center justify-between bg-green-300 px-6 text-3xl font-bold'>
+            {moviesInRange.map((movie) => (
+              <div
+                key={movie.id}
+                variants={variants}
+                initial='enter'
+                animate='center'
+                exit='exit'
+                custom={{ direction, width }}
               >
-                {movie.title}
-              </Card>
+                <div className='w-full h-full bg-red-300 flex justify-center items-center'>{movie.title}</div>
+              </div>
             ))}
           </div>
         </div>
       </div>
 
-      {/* BUTTON - LEFT */}
-      <Button
-        size='icon'
-        onClick={() => scroll(distance * -1)}
-        className={cn(
-          'absolute w-12 h-12 top-1/2 left-4 -translate-y-1/2 rounded-full p-2 bg-gray-bk/30 shadow-none transition-all duration-700 delay-300',
-          isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-50 pointer-events-none',
-          !canScrollLeft && 'opacity-0 scale-50 pointer-events-none delay-0',
-          buttonScroll === 0 && 'hidden'
-        )}
-      >
-        <MdChevronLeft size={'24px'} color='white' />
-      </Button>
-
-      {/* BUTTON - RIGHT */}
-      <Button
-        size='icon'
-        onClick={() => scroll(distance)}
-        className={cn(
-          'absolute w-12 h-12 top-1/2 right-4 -translate-y-1/2 rounded-full p-2 bg-gray-bk/30 shadow-none transition-all duration-700 delay-300',
-          isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-50 pointer-events-none',
-          !canScrollRight && 'opacity-0 scale-50 pointer-events-none delay-0',
-          buttonScroll === 0 && 'hidden'
-        )}
-      >
-        <MdChevronRight size={'24px'} color='white' />
-      </Button>
+      <div className='absolute w-full flex justify-between px-4 h-full top-1/2 -translate-y-1/2 p-2'>
+        <button onClick={handleLeftButtonClick} className='rounded-full bg-brand-black'>
+          <MdChevronLeft className='h-10 w-10 m-2 flex text-brand-white' />
+        </button>
+        <button onClick={handleRightButtonClick} className='rounded-full bg-brand-black'>
+          <MdChevronRight className='h-10 w-10 m-2 flex text-brand-white' />
+        </button>
+      </div>
     </div>
   );
 }

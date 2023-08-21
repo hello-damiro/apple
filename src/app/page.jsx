@@ -12,6 +12,7 @@ import { useStickyheadUpdate } from '@/context/StickyheadContext';
 import { HeroTitle, HeroSubText, PromoTitle, PromoSubText, LinkText, PreText, MoreText } from '@/components/Texts';
 import Carousel from '@/components/Carousel';
 import CounterTicker from '@/components/CounterTicker';
+import CarouselSam from '@/components/CarouselSam';
 
 export default function Home() {
   const showNav = useNav();
@@ -25,13 +26,12 @@ export default function Home() {
 
   return (
     <main className={cn(showNav && 'hidden lg:block', 'min-h-screen')}>
+      <Carousel />
+
       <Ribbon link='Shop iPhone'>
         Get $200–$640 in credit toward iPhone 14 <br className='block md:hidden' /> or iPhone 14 Pro when you trade in
         iPhone 11 or higher. <sup className='inline text-xxs'>3</sup>
       </Ribbon>
-
-      <CounterTicker />
-      <Carousel buttonScroll={400} />
 
       <Hero
         src='/images/home-hero/hero_iphone14pro.jpeg'

@@ -3,7 +3,7 @@ import { useBreakpoint } from '@/context/breakpointContext';
 import { cn } from '@/lib/utils';
 import Picture from './Picture';
 
-const CardDefault = ({ children, width, textClassName, picClassName, src, alt, dark }) => {
+export const CardDefault = ({ children, width, textClassName, picClassName, src, alt, dark }) => {
   const breakpoint = useBreakpoint();
   const breakpointWidth = breakpoint !== 'sm' ? width : '320px';
 
