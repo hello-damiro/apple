@@ -4,7 +4,9 @@ import useMeasure from 'react-use-measure';
 import usePrevious from '@/lib/usePrevious';
 import AdaptiveImage from '@/lib/adaptiveImage';
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
+import { cn } from '@/lib/utils';
 import { movieData } from '@/data/movies';
+import Picture from './Picture';
 
 const movies = movieData;
 
@@ -55,28 +57,28 @@ export default function Carousel() {
   const moviesInRange = getMoviesInRange();
 
   return (
-    <div className='relative w-full min-h-10 overflow-hidden'>
-      <div className='relative w-full h-auto'>
-        <div ref={ref} className='relative flex w-full h-full '>
-          <div className='flex flex-row gap-6 w-full h-full items-center justify-between bg-green-300 px-6 text-3xl font-bold'>
-            {moviesInRange.map((movie) => (
+    <div className='relative overflow-hidden'>
+      <div ref={ref} className='relative mx-auto w-full h-full py-4 no-scrollbar'>
+        <div className='flex flex-nowrap pl-6 w-full h-auto justify-center'>
+          {/* CARDS */}
+          {moviesInRange.map((movie) => (
+            <div key={movie.id} className='scale-100 hover:scale-[1.02] transition-all duration-700 pr-6'>
               <div
-                key={movie.id}
-                variants={variants}
-                initial='enter'
-                animate='center'
-                exit='exit'
-                custom={{ direction, width }}
+                className={cn(
+                  'overflow-hidden rounded-2xl shadow-gray-md shadow-sm hover:shadow-lg transition-all duration-700',
+                  'bg-red-200 w-[400px] aspect-[16/9]' // Card dimensions
+                )}
               >
-                <div className='w-full h-full bg-red-300 flex justify-center items-center'>{movie.title}</div>
+                <Picture src={movie.src} alt={movie.title} style={{ width: '100%', height: '100%' }} />
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
 
-      <div className='absolute w-full flex justify-between px-4 h-full top-1/2 -translate-y-1/2 p-2'>
-        <button onClick={handleLeftButtonClick} className='rounded-full bg-brand-black'>
+      {/* BUTTONS */}
+      <div className='absolute w-full h-auto flex justify-between px-6 top-1/2 -translate-y-1/2 p-2'>
+        <button onClick={handleLeftButtonClick} className=' rounded-full bg-brand-black'>
           <MdChevronLeft className='h-10 w-10 m-2 flex text-brand-white' />
         </button>
         <button onClick={handleRightButtonClick} className='rounded-full bg-brand-black'>
