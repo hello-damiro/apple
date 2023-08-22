@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import useMeasure from 'react-use-measure';
 import usePrevious from '@/lib/usePrevious';
-import AdaptiveImage from '@/lib/adaptiveImage';
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 import { cn } from '@/lib/utils';
 import { movieData } from '@/data/movies';
