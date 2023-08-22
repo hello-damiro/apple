@@ -26,7 +26,7 @@ export default function Home() {
 
   return (
     <main className={cn(showNav && 'hidden lg:block', 'min-h-screen')}>
-      <Carousel />
+      <Carousel infinite />
 
       <Ribbon link='Shop iPhone'>
         Get $200–$640 in credit toward iPhone 14 <br className='block md:hidden' /> or iPhone 14 Pro when you trade in

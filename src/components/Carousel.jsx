@@ -1,48 +1,72 @@
-import { useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
-import useMeasure from 'react-use-measure';
-import usePrevious from '@/lib/usePrevious';
-import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
+import { useEffect, useState } from 'react';
+import { motion, useSpring, useTransform } from 'framer-motion';
+import { MdChevronLeft, MdChevronRight, MdPlayArrow, MdPlayCircle } from 'react-icons/md';
 import { cn } from '@/lib/utils';
 import { movieData } from '@/data/movies';
 import Picture from './Picture';
+import useMeasure from 'react-use-measure';
+import { Button } from './ui/button';
 
 const movies = movieData;
-const movieWidth = 400;
-const twWidth = 'w-[400px]';
 
-export default function Carousel() {
+export default function Carousel({ infinite = false }) {
   let [count, setCount] = useState(0);
-  let prev = usePrevious(count);
+  let [ref, { width }] = useMeasure();
 
   const handleLeftButtonClick = () => {
-    setCount(count - 1 < 0 ? movies.length - 1 : count - 1);
-    console.log(count);
+    if (infinite) {
+      setCount((prev) => {
+        return prev - 1;
+      });
+    } else {
+      setCount((prev) => {
+        return prev - 1 < 0 ? movies.length - 1 : prev - 1;
+      });
+    }
   };
 
   const handleRightButtonClick = () => {
-    setCount(count + 1 >= movies.length ? 0 : count + 1);
-    console.log(count);
+    if (infinite) {
+      setCount((prev) => {
+        return prev + 1;
+      });
+    } else {
+      setCount((prev) => {
+        return prev + 1 >= movies.length ? 0 : prev + 1;
+      });
+    }
   };
 
-  function rearrangeMovies(movies) {
-    const middleIndex = Math.floor(movies.length / 2);
-    const newArray = [];
-
-    for (let i = middleIndex + 1; i < movies.length; i++) newArray.push(movies[i]); // Add movies after the middleIndex to the new array
-    newArray.push(movies[0]); // Add movie[0] at middleIndex to the new array
-    for (let i = 1; i <= middleIndex; i++) newArray.push(movies[i]); // Add movies before the middleIndex to the new array
-
-    return newArray;
-  }
+  let animatedValue = useSpring(count);
+  useEffect(() => {
+    console.log(count);
+    animatedValue.set(count);
+  }, [animatedValue, count]);
 
   return (
-    <div className='relative py-4 overflow-hidden'>
+    <div className='relative py-1 overflow-hidden'>
       {/* CAROUSEL */}
-      <div className={cn('flex mx-auto aspect-video', twWidth)}>
+      <div
+        ref={ref}
+        className={cn(
+          'flex mx-auto aspect-[1/2] md:aspect-[16/9] max-w-[280px] md:max-w-3xl lg:max-w-4xl 2xl:max-w-7xl'
+        )}
+      >
         <div className={'relative w-full'}>
           {movies.map((movie) => (
-            <Movie key={movie.id} id={movie.id} src={movie.src} title={movie.title} />
+            <Movie
+              key={movie.id}
+              motionValue={animatedValue}
+              id={movie.id}
+              srcImage={width > 380 ? movie.src : movie.mob}
+              infinite={infinite}
+              width={width}
+              smBreakpoint={380}
+              title={movie.title}
+              genre={movie.genre}
+              tagline={movie.tagline}
+              alt={movie.tagline}
+            />
           ))}
         </div>
       </div>
@@ -50,13 +74,13 @@ export default function Carousel() {
       {/* BUTTONS */}
       <button
         onClick={handleLeftButtonClick}
-        className='absolute top-1/2 -translate-y-1/2 rounded-full bg-brand-black ml-6'
+        className='absolute top-1/2 -translate-y-1/2 rounded-full bg-brand-black ml-3'
       >
         <MdChevronLeft className='h-10 w-10 m-2 flex text-brand-white' />
       </button>
       <button
         onClick={handleRightButtonClick}
-        className='absolute top-1/2 -translate-y-1/2 right-0 rounded-full bg-brand-black mr-6'
+        className='absolute top-1/2 -translate-y-1/2 right-0 rounded-full bg-brand-black mr-3'
       >
         <MdChevronRight className='h-10 w-10 m-2 flex text-brand-white' />
       </button>
@@ -64,17 +88,47 @@ export default function Carousel() {
   );
 }
 
-function Movie({ src, title, id }) {
+function Movie({ srcImage, alt, id, motionValue, infinite, width, title, genre, tagline }) {
+  let x = useTransform(motionValue, (latest) => {
+    let length = movies.length;
+    let placeValue = latest % length;
+    if (infinite) {
+      let offset = (length + id - placeValue) % length;
+      let memo = offset * width;
+      if (offset > Math.floor(length / 2)) memo -= width * length;
+      return memo;
+    } else {
+      let offset = id - latest;
+      let memo = offset * width;
+      return memo;
+    }
+  });
+
   return (
-    <motion.span
-      style={{ x: movieWidth * id }}
-      className={cn(
-        'absolute inset-0 flex justify-center',
-        'scale-100 hover:scale-[1.02] transition-all duration-700',
-        'overflow-hidden rounded-2xl shadow-gray-md shadow-sm hover:shadow-lg transition-all duration-700'
-      )}
-    >
-      <Picture src={src} alt={title} style={{ width: '100%', height: '100%' }} />
+    <motion.span style={{ x: x }} className={cn('absolute inset-0 flex justify-center')}>
+      <div
+        className={cn(
+          'm-2 overflow-hidden rounded-md shadow-gray-md shadow-sm hover:shadow-lg',
+          // 'scale-100 hover:scale-[1.02]',
+          'transition-all duration-700',
+          'relative'
+        )}
+      >
+        <Picture src={srcImage} alt={alt} style={{ width: '100%', height: '100%' }} />
+      </div>
+      <div className='absolute flex top-1/2 -translate-y-1/2 w-full h-full text-sm md:text-lg px-8 justify-start items-end text-brand-white p-6'>
+        <div className='flex flex-col-reverse md:flex-row gap-3 items-center justify-center md:justify-start text-center w-full md:w-4/5 lg:w-full p-4 md:p-6 lg:p-8 xl:p-14 text-shadow'>
+          <Button className='mr-0 md:mr-4 rounded-full font-semibold text-gray-bk bg-brand-white hover:bg-gray-md whitespace-nowrap'>
+            Stream now <MdPlayCircle size={24} className='pl-2' />
+          </Button>
+          <span className='text-ccenter md:text-left leading-6 mb-2 md:mb-0'>
+            <span className='font-bold'>{genre}</span>
+            <br className='md:hidden' />
+            <span className='hidden md:inline-block px-2'>&#183;</span>
+            {tagline}
+          </span>
+        </div>
+      </div>
     </motion.span>
   );
 }
