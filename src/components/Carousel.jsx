@@ -13,7 +13,7 @@ const movies = movieData;
 export default function Carousel({ infinite = false, dots = false }) {
   let [paused, setPaused] = useState(true);
   let [count, setCount] = useState(0);
-  let [ref, { width }] = useMeasure();
+  let [refImage, { width, height, left }] = useMeasure();
 
   const handleLeftButtonClick = () => {
     if (infinite) {
@@ -50,23 +50,9 @@ export default function Carousel({ infinite = false, dots = false }) {
     }
   };
 
-  const handleImageClick = (id) => {
-    const modulo = ((count % movies.length) + movies.length) % movies.length;
-
-    if (count === 0 || count === movies.length - 1) {
-      console.log('LEFT', count, modulo);
-    }
-    if (id === count + 1) {
-      console.log('RIGHT', count + 1, modulo);
-    } else if (id === count - 1) {
-      console.log('left', count - 1, modulo);
-    }
-  };
-
   let animatedValue = useSpring(count, { stiffness: 50, damping: 12, duration: 1000 });
 
   useEffect(() => {
-    // console.log(count);
     animatedValue.set(count);
   }, [animatedValue, count]);
 
@@ -74,14 +60,14 @@ export default function Carousel({ infinite = false, dots = false }) {
     <div className='relative pb-4 overflow-hidden'>
       {/* CAROUSEL */}
       <div
-        ref={ref}
+        ref={refImage}
         className={cn(
           'flex mx-auto aspect-[1/2] md:aspect-[16/9] max-w-[280px] md:max-w-2xl lg:max-w-[1000px] 2xl:max-w-7xl'
         )}
       >
         <div className={'relative w-full'}>
           {movies.map((movie) => (
-            <div key={movie.id} onClick={() => handleImageClick(movie.id)}>
+            <div key={movie.id}>
               <Movie
                 motionValue={animatedValue}
                 id={movie.id}
@@ -100,19 +86,21 @@ export default function Carousel({ infinite = false, dots = false }) {
         </div>
       </div>
 
-      {/* BUTTONS */}
+      {/* LEFT & RIGHT BUTTONS */}
       <button
         onClick={handleLeftButtonClick}
-        className={cn('absolute top-1/2 -translate-y-1/2 rounded-full bg-brand-black ml-3', dots && '-mt-6')}
+        className='absolute top-1/2 -translate-y-1/2 -mt-5 bg-transparent flex items-center justify-center'
+        style={{ height: height, width: left - 8 }}
       >
-        <MdChevronLeft className='h-10 w-10 m-2 flex text-brand-white' />
+        <MdChevronLeft className='h-10 w-10 text-brand-black md:hidden block' />
       </button>
 
       <button
         onClick={handleRightButtonClick}
-        className={cn('absolute top-1/2 -translate-y-1/2 right-0 rounded-full bg-brand-black mr-3', dots && '-mt-6')}
+        className='absolute top-1/2 -translate-y-1/2 -mt-5 right-0 bg-transparent flex items-center justify-center'
+        style={{ height: height, width: left - 8 }}
       >
-        <MdChevronRight className='h-10 w-10 m-2 flex text-brand-white' />
+        <MdChevronRight className='h-10 w-10 text-brand-black md:hidden block' />
       </button>
 
       {/* DOTS */}
