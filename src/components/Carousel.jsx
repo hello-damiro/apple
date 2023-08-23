@@ -82,7 +82,7 @@ export default function Carousel({ infinite = false, dots = false }) {
               genre={movie.genre}
               tagline={movie.tagline}
               alt={movie.tagline}
-              inView={count % movies.length === movie.id}
+              inView={((count % movies.length) + movies.length) % movies.length === movie.id}
             />
           ))}
         </div>
@@ -112,7 +112,7 @@ export default function Carousel({ infinite = false, dots = false }) {
               onClick={() => handleDotButtonClick(index)}
               className={cn(
                 'w-2 h-2 rounded-full bg-gray-md',
-                count % movies.length === index && 'w-6 bg-gray-rg',
+                ((count % movies.length) + movies.length) % movies.length === index && 'w-6 bg-gray-rg',
                 'transition-all duration-300'
               )}
             />
