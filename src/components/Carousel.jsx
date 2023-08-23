@@ -7,6 +7,7 @@ import Picture from './Picture';
 import useMeasure from 'react-use-measure';
 import { Button } from './ui/button';
 import TimedFunctionExecutor from './TimedFunctionExecutor';
+import Link from 'next/link';
 
 const movies = movieData;
 
@@ -67,7 +68,7 @@ export default function Carousel({ infinite = false, dots = false }) {
       >
         <div className={'relative w-full'}>
           {movies.map((movie) => (
-            <div key={movie.id}>
+            <Link key={movie.id} href='/'>
               <Movie
                 motionValue={animatedValue}
                 id={movie.id}
@@ -81,7 +82,7 @@ export default function Carousel({ infinite = false, dots = false }) {
                 alt={movie.tagline}
                 inView={((count % movies.length) + movies.length) % movies.length === movie.id}
               />
-            </div>
+            </Link>
           ))}
         </div>
       </div>
