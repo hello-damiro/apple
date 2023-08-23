@@ -9,7 +9,7 @@ import { Button } from './ui/button';
 
 const movies = movieData;
 
-export default function Carousel({ infinite = false }) {
+export default function Carousel({ infinite = false, dots = false }) {
   let [count, setCount] = useState(0);
   let [ref, { width }] = useMeasure();
 
@@ -37,14 +37,18 @@ export default function Carousel({ infinite = false }) {
     }
   };
 
-  let animatedValue = useSpring(count);
+  const handleDOtButtonClick = (index) => {
+    setCount(index);
+  };
+
+  let animatedValue = useSpring(count, { stiffness: 50, damping: 12, duration: 1000 });
   useEffect(() => {
     console.log(count);
     animatedValue.set(count);
   }, [animatedValue, count]);
 
   return (
-    <div className='relative py-1 overflow-hidden'>
+    <div className='relative pb-3 overflow-hidden'>
       {/* CAROUSEL */}
       <div
         ref={ref}
@@ -84,6 +88,19 @@ export default function Carousel({ infinite = false }) {
       >
         <MdChevronRight className='h-10 w-10 m-2 flex text-brand-white' />
       </button>
+
+      {/* DOTS */}
+      {dots && (
+        <div className='w-full flex justify-center pt-3 my-1.5 gap-4'>
+          {movies.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => handleDOtButtonClick(index)}
+              className='w-2.5 aspect-square rounded-full bg-gray-rg'
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 }
@@ -108,7 +125,7 @@ function Movie({ srcImage, alt, id, motionValue, infinite, width, title, genre, 
     <motion.span style={{ x: x }} className={cn('absolute inset-0 flex justify-center')}>
       <div
         className={cn(
-          'm-2 overflow-hidden rounded-md shadow-gray-md shadow-sm hover:shadow-lg',
+          'overflow-hidden mx-1.5 rounded-md shadow-gray-md shadow-sm hover:shadow-lg',
           // 'scale-100 hover:scale-[1.02]',
           'transition-all duration-700',
           'relative'
@@ -116,8 +133,8 @@ function Movie({ srcImage, alt, id, motionValue, infinite, width, title, genre, 
       >
         <Picture src={srcImage} alt={alt} style={{ width: '100%', height: '100%' }} />
       </div>
-      <div className='absolute flex top-1/2 -translate-y-1/2 w-full h-full text-sm md:text-lg px-8 justify-start items-end text-brand-white p-6'>
-        <div className='flex flex-col-reverse md:flex-row gap-3 items-center justify-center md:justify-start text-center w-full md:w-4/5 lg:w-full p-4 md:p-6 lg:p-8 xl:p-14 text-shadow'>
+      <div className='absolute flex top-1/2 -translate-y-1/2 w-full h-full text-sm md:text-md lg:text-lg px-8 justify-start items-end text-brand-white p-6'>
+        <div className='flex flex-col-reverse md:flex-row gap-3 items-center justify-center md:justify-start text-center w-full md:w-5/6 lg:w-full p-4 md:p-6 lg:p-8 2xl:p-14 text-shadow'>
           <Button className='mr-0 md:mr-4 rounded-full font-semibold text-gray-bk bg-brand-white hover:bg-gray-md whitespace-nowrap'>
             Stream now <MdPlayCircle size={24} className='pl-2' />
           </Button>

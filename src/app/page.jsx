@@ -11,8 +11,6 @@ import Promo, { Half } from '@/components/Promo';
 import { useStickyheadUpdate } from '@/context/StickyheadContext';
 import { HeroTitle, HeroSubText, PromoTitle, PromoSubText, LinkText, PreText, MoreText } from '@/components/Texts';
 import Carousel from '@/components/Carousel';
-import CounterTicker from '@/components/CounterTicker';
-import CarouselSam from '@/components/CarouselSam';
 
 export default function Home() {
   const showNav = useNav();
@@ -26,8 +24,6 @@ export default function Home() {
 
   return (
     <main className={cn(showNav && 'hidden lg:block', 'min-h-screen')}>
-      <Carousel infinite />
-
       <Ribbon link='Shop iPhone'>
         Get $200–$640 in credit toward iPhone 14 <br className='block md:hidden' /> or iPhone 14 Pro when you trade in
         iPhone 11 or higher. <sup className='inline text-xxs'>3</sup>
@@ -75,6 +71,7 @@ export default function Home() {
           </div>
         </Half>
       </Promo>
+
       <Promo>
         <Half src='/images/home-promo/promo_vision_pro.jpeg' title='Vision Pro' position='down'>
           <PromoTitle text='Vision Pro' logo={true} />
@@ -94,6 +91,7 @@ export default function Home() {
           <LinkText text='See what your device is worth' />
         </Half>
       </Promo>
+
       <Promo>
         <Half src='/images/home-promo/promo_apple_news_womens_world_cup.jpeg' title='News'>
           <PromoTitle text='News' logo={true} />
@@ -115,6 +113,9 @@ export default function Home() {
           </div>
         </Half>
       </Promo>
+
+      <Carousel infinite dots />
+
       <Disclaimer>
         <p>
           1. Qualified Purchasers receive an Apple Gift Card when they purchase an eligible Mac or iPad at a Qualifying
