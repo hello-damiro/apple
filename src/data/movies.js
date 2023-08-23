@@ -65,6 +65,14 @@ export const movieData = [
   },
   {
     id: 8,
+    src: '/images/home-carousel/1378x774_J.jpg',
+    mob: '/images/home-carousel/548x1186_J.jpg',
+    title: 'Idris Elba Hijack',
+    genre: 'Thriller',
+    tagline: 'Let them think they are in control',
+  },
+  {
+    id: 9,
     src: '/images/home-carousel/1378x774_K.jpg',
     mob: '/images/home-carousel/548x1186_K.jpg',
     title: 'The after party',
