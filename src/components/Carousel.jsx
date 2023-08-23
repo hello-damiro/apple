@@ -1,16 +1,18 @@
 import { useEffect, useState } from 'react';
 import { motion, useSpring, useTransform } from 'framer-motion';
-import { MdChevronLeft, MdChevronRight, MdPlayCircle } from 'react-icons/md';
+import { MdChevronLeft, MdChevronRight, MdPauseCircle, MdPlayCircle } from 'react-icons/md';
 import { cn } from '@/lib/utils';
 import { movieData } from '@/data/movies';
 import Picture from './Picture';
 import useMeasure from 'react-use-measure';
 import { Button } from './ui/button';
 import { off } from 'process';
+import TimedFunctionExecutor from './TimedFunctionExecutor';
 
 const movies = movieData;
 
 export default function Carousel({ infinite = false, dots = false }) {
+  let [paused, setPaused] = useState(false);
   let [count, setCount] = useState(0);
   let [ref, { width }] = useMeasure();
 
@@ -130,6 +132,20 @@ export default function Carousel({ infinite = false, dots = false }) {
           ))}
         </div>
       )}
+
+      {/* AUTOPLAY */}
+      <Button
+        onClick={() => setPaused((prev) => !prev)}
+        className={'absolute bg-brand-black p-0 m-0 w-6 h-6 rounded-full -translate-y-2/3 right-6'}
+      >
+        {paused ? <MdPlayCircle size={24} /> : <MdPauseCircle size={24} />}
+        <TimedFunctionExecutor
+          delayMs={3000}
+          targetFunction={() => setCount((prev) => prev + 1)}
+          isPaused={paused}
+          infiniteLoop
+        />
+      </Button>
     </div>
   );
 }
