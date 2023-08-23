@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
-import { inView, motion, useSpring, useTransform } from 'framer-motion';
+import { motion, useSpring, useTransform } from 'framer-motion';
 import { MdChevronLeft, MdChevronRight, MdPlayCircle } from 'react-icons/md';
 import { cn } from '@/lib/utils';
 import { movieData } from '@/data/movies';
 import Picture from './Picture';
 import useMeasure from 'react-use-measure';
 import { Button } from './ui/button';
+import { off } from 'process';
 
 const movies = movieData;
 
@@ -49,10 +50,20 @@ export default function Carousel({ infinite = false, dots = false }) {
   };
 
   const handleImageClick = (id) => {
-    console.log('clicked', count, id);
+    const modulo = ((count % movies.length) + movies.length) % movies.length;
+
+    if (count === 0 || count === movies.length - 1) {
+      console.log('LEFT', count, modulo);
+    }
+    if (id === count + 1) {
+      console.log('RIGHT', count + 1, modulo);
+    } else if (id === count - 1) {
+      console.log('left', count - 1, modulo);
+    }
   };
 
   let animatedValue = useSpring(count, { stiffness: 50, damping: 12, duration: 1000 });
+
   useEffect(() => {
     // console.log(count);
     animatedValue.set(count);
@@ -69,21 +80,21 @@ export default function Carousel({ infinite = false, dots = false }) {
       >
         <div className={'relative w-full'}>
           {movies.map((movie) => (
-            <Movie
-              key={movie.id}
-              onClick={() => handleImageClick(movie.id)}
-              motionValue={animatedValue}
-              id={movie.id}
-              srcImage={width > 280 ? movie.src : movie.mob}
-              infinite={infinite}
-              width={width}
-              smBreakpoint={380}
-              title={movie.title}
-              genre={movie.genre}
-              tagline={movie.tagline}
-              alt={movie.tagline}
-              inView={((count % movies.length) + movies.length) % movies.length === movie.id}
-            />
+            <div key={movie.id} onClick={() => handleImageClick(movie.id)}>
+              <Movie
+                motionValue={animatedValue}
+                id={movie.id}
+                srcImage={width > 280 ? movie.src : movie.mob}
+                infinite={infinite}
+                width={width}
+                smBreakpoint={380}
+                title={movie.title}
+                genre={movie.genre}
+                tagline={movie.tagline}
+                alt={movie.tagline}
+                inView={((count % movies.length) + movies.length) % movies.length === movie.id}
+              />
+            </div>
           ))}
         </div>
       </div>
@@ -123,7 +134,7 @@ export default function Carousel({ infinite = false, dots = false }) {
   );
 }
 
-function Movie({ srcImage, alt, id, motionValue, infinite, width, title, genre, tagline, inView }) {
+function Movie({ srcImage, alt, id, motionValue, infinite, width, genre, tagline, inView }) {
   let x = useTransform(motionValue, (latest) => {
     let length = movies.length;
     let placeValue = latest % length;
