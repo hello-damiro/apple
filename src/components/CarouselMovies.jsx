@@ -11,7 +11,7 @@ import Link from 'next/link';
 
 const movies = movieData;
 
-export default function Carousel({ infinite = false, dots = false }) {
+export default function CarouselMovies({ infinite = true, dots = true }) {
   let [paused, setPaused] = useState(true);
   let [count, setCount] = useState(0);
   let [refImage, { width, height, left }] = useMeasure();
@@ -159,7 +159,7 @@ function Movie({ srcImage, alt, id, motionValue, infinite, width, genre, tagline
       <div
         className={cn(
           'relative overflow-hidden mx-2 rounded-md shadow-gray-md',
-          'opacity-30 transition-all duration-700',
+          'opacity-30 scale-100 transition-all duration-700',
           inView && 'opacity-100'
         )}
       >

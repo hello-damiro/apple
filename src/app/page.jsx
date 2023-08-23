@@ -10,7 +10,7 @@ import Ribbon from '@/components/Ribbon';
 import Promo, { Half } from '@/components/Promo';
 import { useStickyheadUpdate } from '@/context/StickyheadContext';
 import { HeroTitle, HeroSubText, PromoTitle, PromoSubText, LinkText, PreText, MoreText } from '@/components/Texts';
-import Carousel from '@/components/Carousel';
+import CarouselMovies from '@/components/CarouselMovies';
 
 export default function Home() {
   const showNav = useNav();
@@ -114,7 +114,7 @@ export default function Home() {
         </Half>
       </Promo>
 
-      <Carousel infinite dots />
+      <CarouselMovies />
 
       <Disclaimer>
         <p>
