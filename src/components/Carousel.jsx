@@ -112,8 +112,8 @@ export default function Carousel({ infinite = false, dots = false }) {
               key={index}
               onClick={() => handleDotButtonClick(index)}
               className={cn(
-                'w-2 h-2 rounded-full bg-gray-md',
-                ((count % movies.length) + movies.length) % movies.length === index && 'w-6 bg-gray-rg',
+                'w-2 h-2 rounded-full bg-gray-rg',
+                ((count % movies.length) + movies.length) % movies.length === index && 'w-6 bg-brand-black',
                 'transition-all duration-300'
               )}
             />
