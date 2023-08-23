@@ -6,13 +6,12 @@ import { movieData } from '@/data/movies';
 import Picture from './Picture';
 import useMeasure from 'react-use-measure';
 import { Button } from './ui/button';
-import { off } from 'process';
 import TimedFunctionExecutor from './TimedFunctionExecutor';
 
 const movies = movieData;
 
 export default function Carousel({ infinite = false, dots = false }) {
-  let [paused, setPaused] = useState(false);
+  let [paused, setPaused] = useState(true);
   let [count, setCount] = useState(0);
   let [ref, { width }] = useMeasure();
 
@@ -77,7 +76,7 @@ export default function Carousel({ infinite = false, dots = false }) {
       <div
         ref={ref}
         className={cn(
-          'flex mx-auto aspect-[1/2] md:aspect-[16/9] max-w-[280px] md:max-w-2xl lg:max-w-4xl 2xl:max-w-7xl'
+          'flex mx-auto aspect-[1/2] md:aspect-[16/9] max-w-[280px] md:max-w-2xl lg:max-w-[1000px] 2xl:max-w-7xl'
         )}
       >
         <div className={'relative w-full'}>
@@ -188,8 +187,8 @@ function Movie({ srcImage, alt, id, motionValue, infinite, width, genre, tagline
           className={cn(
             'flex flex-col-reverse md:flex-row gap-3 items-center justify-center md:justify-start',
             'w-full md:w-5/6 lg:w-full text-center text-shadow py-0 opacity-0 ',
-            'px-2 md:px-2 lg:px-6 2xl:px-14 transition-all duration-700 delay-500',
-            inView && 'py-2 md:py-2 lg:py-6 2xl:py-14 opacity-100'
+            'px-2 md:px-2 lg:px-6 2xl:px-14 transition-all duration-700 delay-700',
+            inView && 'py-2 md:py-2 lg:py-8 2xl:py-14 opacity-100'
           )}
         >
           <Button
