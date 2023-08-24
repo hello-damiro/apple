@@ -2,10 +2,14 @@ import Image from 'next/image';
 import { cn } from '@/lib/utils';
 
 export default function Promo({ children }) {
-  return <div className='w-full flex flex-col md:flex-row gap-3 px-0 md:px-3 pb-3'>{children}</div>;
+  return (
+    <div className='container mx-auto'>
+      <div className='flex flex-col md:flex-row gap-6 px-4 md:px-3 pb-6'>{children}</div>
+    </div>
+  );
 }
 
-export function Half({ children, src, title, position = '', theme = '' }) {
+export function Ad({ children, src, title, position = '', theme = '' }) {
   const color = theme === '' ? 'text-brand-black' : 'text-brand-white';
 
   return (
@@ -21,6 +25,7 @@ export function Half({ children, src, title, position = '', theme = '' }) {
           placeholder='blur'
           unoptimized
           priority
+          className='rounded-md'
         />
       </div>
       <div className={cn('absolute h-full w-full -translate-y-1/2', position === 'down' ? 'top-5/2 mt-12' : 'top-1/2')}>

@@ -7,10 +7,11 @@ import { cn } from '@/lib/utils';
 import Hero from '@/components/Hero';
 import Disclaimer from '@/components/Disclaimer';
 import Ribbon from '@/components/Ribbon';
-import Promo, { Half } from '@/components/Promo';
+import Promo, { Ad } from '@/components/Promo';
 import { useStickyheadUpdate } from '@/context/StickyheadContext';
 import { HeroTitle, HeroSubText, PromoTitle, PromoSubText, LinkText, PreText, MoreText } from '@/components/Texts';
 import CarouselMovies from '@/components/CarouselMovies';
+import Space from '@/components/Space';
 
 export default function Home() {
   const showNav = useNav();
@@ -53,27 +54,29 @@ export default function Home() {
         </div>
       </Hero>
 
+      <Space />
+
       <Promo>
-        <Half src='/images/home-promo/promo_bts2023_startframe.jpeg' title='bts 2023'>
+        <Ad src='/images/home-promo/promo_bts2023_startframe.jpeg' title='bts 2023'>
           <PromoTitle>
             Save on Mac or iPad <br className='lg:hidden' />
             for college.
           </PromoTitle>
           <PromoSubText text='Plus get a gift card up to $150.' />
           <LinkText text='Shop now' />
-        </Half>
-        <Half src='/images/home-promo/promo_watch.jpeg' title='Apple Watch' theme='dark'>
+        </Ad>
+        <Ad src='/images/home-promo/promo_watch.jpeg' title='Apple Watch' theme='dark'>
           <PromoTitle text='WATCH' logo={true} />
           <PromoSubText text='A healthy leap ahead' />
           <div>
             <LinkText text='Learn more' />
             <LinkText text='Buy' />
           </div>
-        </Half>
+        </Ad>
       </Promo>
 
       <Promo>
-        <Half src='/images/home-promo/promo_vision_pro.jpeg' title='Vision Pro' position='down'>
+        <Ad src='/images/home-promo/promo_vision_pro.jpeg' title='Vision Pro' position='down'>
           <PromoTitle text='Vision Pro' logo={true} />
           <PromoSubText>
             Welcome to the era <br className='md:hidden' />
@@ -81,27 +84,27 @@ export default function Home() {
           </PromoSubText>
           <MoreText>Available early next year in the U.S.</MoreText>
           <LinkText text='Learn more' />
-        </Half>
-        <Half src='/images/home-promo/promo_iphone_tradein_promo.jpeg' title='Apple Watch'>
+        </Ad>
+        <Ad src='/images/home-promo/promo_iphone_tradein_promo.jpeg' title='Apple Watch'>
           <PromoTitle text='Trade In' logo={true} />
           <PromoSubText>
             Upgrade & save. <br className='md:hidden' />
             Its thet easy
           </PromoSubText>
           <LinkText text='See what your device is worth' />
-        </Half>
+        </Ad>
       </Promo>
 
       <Promo>
-        <Half src='/images/home-promo/promo_apple_news_womens_world_cup.jpeg' title='News'>
+        <Ad src='/images/home-promo/promo_apple_news_womens_world_cup.jpeg' title='News'>
           <PromoTitle text='News' logo={true} />
           <PromoSubText>
             64 matches. 32 teams. <br />
             One place to follow every goal.
           </PromoSubText>
           <LinkText text="Follow the women's tournament" />
-        </Half>
-        <Half src='/images/home-promo/promo_card.jpeg' title='Promo Card'>
+        </Ad>
+        <Ad src='/images/home-promo/promo_card.jpeg' title='Promo Card'>
           <PromoTitle text='Card' logo={true} />
           <PromoSubText>
             Get up to 3% daily Cash Back <br />
@@ -111,7 +114,7 @@ export default function Home() {
             <LinkText text='Learn more' />
             <LinkText text='Apply now' />
           </div>
-        </Half>
+        </Ad>
       </Promo>
 
       <CarouselMovies />

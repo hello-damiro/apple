@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils';
 export default function Hero({ children, src, altsrc = '', title, theme = '' }) {
   const color = theme === '' ? 'text-brand-black' : 'text-brand-white';
   return (
-    <section className='relative mb-3'>
+    <section className='relative'>
       {/* BACKGROUND IMAGE */}
       <div className='relative h-[500px] md:h-[664px] lg:h-[700px] w-full items-center justify-center bg-red-400/20'>
         <AdaptiveImage alt={title} desktopImage={src} mobileImage={altsrc} />

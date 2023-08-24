@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import { motion, useSpring, useTransform } from 'framer-motion';
 import { MdChevronLeft, MdChevronRight, MdPauseCircle, MdPlayCircle } from 'react-icons/md';
+import Link from 'next/link';
 import { cn } from '@/lib/utils';
-import { movieData } from '@/data/movies';
 import Picture from './Picture';
 import useMeasure from 'react-use-measure';
 import { Button } from './ui/button';
 import TimedFunctionExecutor from './TimedFunctionExecutor';
-import Link from 'next/link';
+import { movieData } from '@/data/movies';
 
 const movies = movieData;
 
@@ -158,7 +158,7 @@ function Movie({ srcImage, alt, id, motionValue, infinite, width, genre, tagline
     <motion.span style={{ x: x }} className={cn('absolute inset-0 flex justify-center')}>
       <div
         className={cn(
-          'relative overflow-hidden mx-2 rounded-md shadow-gray-md',
+          'relative overflow-hidden mx-3 rounded-md shadow-gray-md',
           'opacity-30 scale-100 transition-all duration-700',
           inView && 'opacity-100'
         )}

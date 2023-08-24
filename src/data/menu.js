@@ -7,7 +7,7 @@ export const menuData = [
       {
         name: 'Shop',
         collection: [
-          { link: 'Shop the Latest', href: '/shop-the-latest' },
+          { link: 'Shop the Latest', href: '/store' },
           { link: 'Mac', href: '/Mac' },
           { link: 'iPad', href: '/ipad' },
           { link: 'iPhone', href: '/iphone' },
@@ -45,7 +45,7 @@ export const menuData = [
       {
         name: 'Explore Mac',
         collection: [
-          { link: 'Explore All Mac', href: '/explore-all-mac' },
+          { link: 'Explore All Mac', href: '/mac' },
           { link: 'MacBook Air', href: '/macbook-air' },
           { link: 'MacBook Pro', href: '/macbook-pro' },
           { link: 'iMac', href: '/imac' },
@@ -91,7 +91,7 @@ export const menuData = [
       {
         name: 'Explore iPad',
         collection: [
-          { link: 'Explore All iPad', href: '/explore-all-ipad' },
+          { link: 'Explore All iPad', href: '/ipad' },
           { link: 'iPad Pro', href: '/ipad-pro' },
           { link: 'iPad Air', href: '/ipad-air' },
           { link: 'iPad', href: '/ipad' },
@@ -132,7 +132,7 @@ export const menuData = [
       {
         name: 'Explore iPhone',
         collection: [
-          { link: 'Explore All iPhone', href: '/explore-all-iphone' },
+          { link: 'Explore All iPhone', href: '/iphone' },
           { link: 'iPhone 14 Pro', href: '/iphone-14-pro' },
           { link: 'iPhone 14', href: '/iphone-14' },
           { link: 'iPhone 13', href: '/iphone-13' },
@@ -174,7 +174,7 @@ export const menuData = [
       {
         name: 'Explore Watch',
         collection: [
-          { link: 'Explore All Apple Watch', href: '/explore-all-apple-watch' },
+          { link: 'Explore All Apple Watch', href: '/watch' },
           { link: 'Apple Watch Ultra', href: '/apple-watch-ultra' },
           { link: 'Apple Watch Series 8', href: '/apple-watch-series-8' },
           { link: 'Apple Watch SE', href: '/apple-watch-se' },
@@ -214,7 +214,7 @@ export const menuData = [
       {
         name: 'Explore Airpods',
         collection: [
-          { link: 'Explore All Airpods', href: '/explore-all-airpods' },
+          { link: 'Explore All Airpods', href: '/airpods' },
           { link: 'Airpods Pro 2nd Generation', href: '/airpods-pro-2nd-generation' },
           { link: 'Airpods 2nd Generation', href: '/airpods-2nd-generation' },
           { link: 'Airpods 3rd Generation', href: '/airpods-3rd-generation' },
@@ -242,12 +242,12 @@ export const menuData = [
   {
     id: 7,
     title: 'TV & Home',
-    href: '/tvhome',
+    href: '/tv-home',
     content: [
       {
         name: 'Explore TV & Home',
         collection: [
-          { link: 'Explore TV & Home', href: '/explore-tv-home' },
+          { link: 'Explore TV & Home', href: '/tv-home' },
           { link: 'Apple TV 4K', href: '/apple-tv-4k' },
           { link: 'HomePod', href: '/homepod' },
           { link: 'HomePod Mini', href: '/homepod-mini' },
@@ -287,7 +287,7 @@ export const menuData = [
       {
         name: 'Explore Entertainment',
         collection: [
-          { link: 'Explore Entertainment', href: '/explore-entertainment' },
+          { link: 'Explore Entertainment', href: '/entertainment' },
           { link: 'Apple One', href: '/apple-one' },
           { link: 'Apple TV+', href: '/apple-tv' },
           { link: 'Apple Music', href: '/apple-music' },
@@ -316,7 +316,7 @@ export const menuData = [
       {
         name: 'Explore Accessories',
         collection: [
-          { link: 'Explore All Accessories', href: '/explore-all-accessories' },
+          { link: 'Explore All Accessories', href: '/accessories' },
           { link: 'Mac', href: '/Mac' },
           { link: 'iPad', href: '/ipad' },
           { link: 'iPhone', href: '/iphone' },

@@ -26,11 +26,17 @@ export default function Mac() {
         Get $200–$640 in credit toward iPhone 14 <br className='block md:hidden' /> or iPhone 14 Pro when you trade in
         iPhone 11 or higher. <sup className='inline text-xxs'>3</sup>
       </Ribbon>
-      <Hero src='/images/hero/hero_iphone14_yellow.jpeg' title='Some title here'>
-        <HeroTitle text='iPhone 14' />
-        <HeroSubText text='Wonderfull.' />
+      <Hero
+        src='/images/home-hero/hero_iphone14pro.jpeg'
+        altsrc='/images/home-hero/hero_iphone14pro_mobile.jpeg'
+        title='Some title here'
+        theme='dark'
+      >
+        <PreText text='New' />
+        <HeroTitle text='iPhone 14 Pro' />
+        <HeroSubText>Pro. Beyond.</HeroSubText>
         <div>
-          <LinkText text='Learn more' icon='out' />
+          <LinkText text='Learn more' />
           <LinkText text='Buy' />
         </div>
       </Hero>
